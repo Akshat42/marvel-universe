@@ -8,7 +8,7 @@ import {HomeContainerComponent} from "./home/home-container/home-container.compo
 @NgModule({
   declarations: [
     PopularContainerComponent,
-    HomeContainerComponent
+    HomeContainerComponent,
   ],
   imports: [
     CommonModule
