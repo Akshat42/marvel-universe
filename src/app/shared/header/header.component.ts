@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {AppRoutingModule} from "../../app-routing.module";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'mu-header',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) {
+  }
+
+  userName = localStorage.getItem("username");
 
   ngOnInit(): void {
+  }
+
+  logout(): void {
+    localStorage.clear();
+    this.router.navigate(['/welcome']);
   }
 
 }

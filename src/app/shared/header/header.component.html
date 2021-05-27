@@ -1,1 +1,12 @@
-<p>header works!</p>
+<header class="header-container">
+  <div class="header-flex-wrapper">
+    <a href=""><img src="./assets/images/icons/marvel.svg" alt="marvel_logo"></a>
+    <nav class="header-flex-nav">
+      <div class="flex-nav-item"><span *ngIf="userName">Welcome, {{userName}}</span></div>
+      <div class="flex-nav-item nav-hover"><a routerLink='/popular'>Popular</a></div>
+      <div class="flex-nav-item">
+        <button (click)="logout()" class="mu-btn-inherit-color">Logout</button>
+      </div>
+    </nav>
+  </div>
+</header>
