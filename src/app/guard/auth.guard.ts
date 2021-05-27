@@ -10,18 +10,22 @@ export class AuthGuard implements CanActivate {
   constructor(private authService: AuthService, private router: Router) {
   }
 
+  flag: boolean=false;
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return this.checkLoggedIn(state.url);
+    this.flag = this.checkLoggedIn(state.url);
+    return this.flag;
   }
 
   checkLoggedIn(url: string): boolean {
     if (this.authService.isLoggedIn) {
-      return true;
+      this.flag=true;
+      return this.flag;
     }
     this.authService.redirectUrl = url;
     this.router.navigate(['/welcome']);
-    return false;
+    this.flag=false;
+    return this.flag;
   }
 }
