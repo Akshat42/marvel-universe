@@ -1,0 +1,16 @@
+.container {
+  background: beige;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+
+.title {
+  background: aqua;
+  color: red;
+  align-self: center; }
+
+.login {
+  align-self: center; }
+
+/*# sourceMappingURL=welcome.component.css.map */
