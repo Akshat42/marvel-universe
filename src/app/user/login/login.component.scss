@@ -12,6 +12,7 @@
 label{
   display: block;
   margin: 10px 0;
+  cursor: pointer;
 }
 button{
   display: block;
@@ -20,6 +21,7 @@ button{
   width: 80px;
   background: lightblue;
   outline: 0;
+  cursor: pointer;
 }
 input{
   border-radius: 10%;
@@ -32,5 +34,6 @@ input{
   color: red;
 }
 .is-invalid input{
-  border-color: red;
+  border-color:red;
 }
+

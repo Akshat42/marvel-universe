@@ -11,7 +11,8 @@
 
 label {
   display: block;
-  margin: 10px 0; }
+  margin: 10px 0;
+  cursor: pointer; }
 
 button {
   display: block;
@@ -19,7 +20,8 @@ button {
   border-radius: 10%;
   width: 80px;
   background: lightblue;
-  outline: 0; }
+  outline: 0;
+  cursor: pointer; }
 
 input {
   border-radius: 10%; }
