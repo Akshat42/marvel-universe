@@ -14,7 +14,7 @@ export class HeroDataService {
 
   getHeroDetail(heroId: number): Observable<any> {
     return this.http
-      .get<any>(environment.getCharacterUrl+"characters/"+heroId+"?apikey="+environment.apiKey).pipe(
+      .get<any>(environment.baseUrl+"characters/"+heroId+"?apikey="+environment.apiKey).pipe(
         map(
           rawData => rawData.data.results[0]
         )
