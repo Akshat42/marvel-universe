@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../auth.service";
 import {Router} from "@angular/router";
-import {UtilService} from "../../service/util.service";
+import {FormControlValidationService} from "../../service/form-control-validation.service";
 import {debounceTime} from "rxjs/operators";
 
 @Component({
@@ -26,12 +26,12 @@ export class LoginComponent implements OnInit {
     }
   };
 
-  constructor(private router: Router, private utilService: UtilService, private formBuilder: FormBuilder, private authService: AuthService) {
+  constructor(private router: Router, private formControlService: FormControlValidationService, private formBuilder: FormBuilder, private authService: AuthService) {
   }
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
-      email: ['', [Validators.required, this.utilService.emailPatternMatcher]],
+      email: ['', [Validators.required, this.formControlService.emailPatternMatcher]],
       password: ['', [Validators.minLength(8), Validators.required]]
     })
 
@@ -57,17 +57,17 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  setEmailMessage(c: AbstractControl): void {
+  setEmailMessage(control: AbstractControl): void {
     this.displayEmailMessage = '';
-    if ((c.touched || c.dirty) && c.errors) {
-      this.displayEmailMessage = Object.keys(c.errors).map(key => (<any>this.validationMessages.email)[key]).join(' ');
+    if ((control.touched || control.dirty) && control.errors) {
+      this.displayEmailMessage = Object.keys(control.errors).map(key => (<any>this.validationMessages.email)[key]).join(' ');
     }
   }
 
-  setPasswordMessage(c: AbstractControl): void {
+  setPasswordMessage(control: AbstractControl): void {
     this.displayPasswordMessage = '';
-    if ((c.touched || c.dirty) && c.errors) {
-      this.displayPasswordMessage = Object.keys(c.errors).map(key => (<any>this.validationMessages.password)[key]).join(' ');
+    if ((control.touched || control.dirty) && control.errors) {
+      this.displayPasswordMessage = Object.keys(control.errors).map(key => (<any>this.validationMessages.password)[key]).join(' ');
     }
   }
 }

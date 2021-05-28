@@ -20,11 +20,10 @@ export class AuthService {
 
   message: string = '';
   loginStatus = false;
-  // @ts-ignore
-  redirectUrl: string;
+  redirectUrl!: string;
 
   public login(email: string, password: string): string {
-    let item = userDetails.users.find((item) => item.email === email && item.password === password), loginStatus;
+    let item = userDetails.users.find((item) => item.email === email && item.password === password);
     if (item) {
       this.loginStatus = true;
       localStorage.setItem("username", JSON.stringify(item.name));
