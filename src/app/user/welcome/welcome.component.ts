@@ -11,5 +11,5 @@ export class WelcomeComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  public pageTitle = "Welcome";
+  public pageTitle = "Welcome to the Marvel Universe";
 }

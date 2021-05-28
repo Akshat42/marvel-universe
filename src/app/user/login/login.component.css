@@ -1,3 +1,39 @@
+* {
+  text-align: center; }
 
+.form-group {
+  margin-top: 30px;
+  border: 2px solid red;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+label {
+  display: block;
+  margin: 10px 0;
+  cursor: pointer; }
+
+button {
+  display: block;
+  margin: 25px 10px 10px 42px;
+  border-radius: 10%;
+  width: 80px;
+  background: lightblue;
+  outline: 0;
+  cursor: pointer; }
+
+input {
+  border-radius: 10%; }
+
+.invalid-feedback {
+  display: block;
+  color: red; }
+
+.is-invalid {
+  color: red; }
+
+.is-invalid input {
+  border-color: red; }
 
 /*# sourceMappingURL=login.component.css.map */
