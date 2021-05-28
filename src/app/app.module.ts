@@ -5,7 +5,8 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {SharedModule} from "./shared/shared.module";
 import {UserModule} from "./user/user.module";
-import {HeroModule} from "./hero/hero.module";
+import {ReactiveFormsModule} from "@angular/forms";
+import {DetailModule} from "./hero/detail/detail.module";
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import {HeroModule} from "./hero/hero.module";
     AppRoutingModule,
     SharedModule,
     UserModule,
-    HeroModule
+    DetailModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
