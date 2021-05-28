@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .container {
   background: beige;
   display: flex;
@@ -12,5 +13,8 @@
 
 .login {
   align-self: center; }
+=======
+
+>>>>>>> feature/Card
 
 /*# sourceMappingURL=welcome.component.css.map */
