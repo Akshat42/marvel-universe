@@ -1,1 +1,33 @@
-<p>login works!</p>
+<div class="form-group">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div
+      [ngClass]="{'is-invalid': displayEmailMessage}">
+      <label for="email">Email</label>
+      <input type="email" id="email"
+             formControlName="email"
+             placeholder="Email-Id"
+      />
+      <span class="invalid-feedback">
+        {{ displayEmailMessage }}
+      </span>
+    </div>
+
+    <div
+      [ngClass]="{'is-invalid': displayPasswordMessage}">
+      <label for="password">Password</label>
+      <input type="password" id="password"
+             formControlName="password"
+             placeholder="Password"
+      />
+      <span class="invalid-feedback">
+            {{ displayPasswordMessage }}
+      </span>
+    </div>
+    <div>
+      <button type="submit">Login</button>
+    </div>
+    <div class="loginStatusMessage">
+      {{ loginStatusMessage }}
+    </div>
+  </form>
+</div>
