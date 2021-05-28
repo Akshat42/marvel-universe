@@ -11,12 +11,9 @@ import {debounceTime} from "rxjs/operators";
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  // @ts-ignore
-  displayEmailMessage: string;
-  // @ts-ignore
-  displayPasswordMessage:string;
-  // @ts-ignore
-  loginForm: FormGroup;
+  displayEmailMessage!: string;
+  displayPasswordMessage!: string;
+  loginForm!: FormGroup;
   loginStatusMessage: string = '';
   private validationMessages = {
     email: {
@@ -37,15 +34,13 @@ export class LoginComponent implements OnInit {
       email: ['', [Validators.required, this.utilService.emailPatternMatcher]],
       password: ['', [Validators.minLength(8), Validators.required]]
     })
-    this.loginForm.get('email')?.valueChanges.subscribe(selectedValue => {
-    });
 
     const emailControl = this.loginForm.get('email');
-    emailControl?.valueChanges.subscribe(
+    emailControl?.valueChanges.pipe(debounceTime(2000)).subscribe(
       value => this.setEmailMessage(emailControl)
     );
     const passwordControl = this.loginForm.get('password');
-    passwordControl?.valueChanges.subscribe(
+    passwordControl?.valueChanges.pipe(debounceTime(2000)).subscribe(
       value => this.setPasswordMessage(passwordControl)
     );
   }
@@ -64,15 +59,15 @@ export class LoginComponent implements OnInit {
 
   setEmailMessage(c: AbstractControl): void {
     this.displayEmailMessage = '';
-    if ((c!.touched || c!.dirty) && c!.errors) {
-      this.displayEmailMessage = Object.keys(c.errors).map(key => (this.validationMessages.email as any)[key]).join(' ');
+    if ((c.touched || c.dirty) && c.errors) {
+      this.displayEmailMessage = Object.keys(c.errors).map(key => (<any>this.validationMessages.email)[key]).join(' ');
     }
   }
+
   setPasswordMessage(c: AbstractControl): void {
     this.displayPasswordMessage = '';
-    if ((c!.touched || c!.dirty) && c!.errors) {
-      this.displayPasswordMessage = Object.keys(c.errors).map(key => (this.validationMessages.password as any)[key]).join(' ');
+    if ((c.touched || c.dirty) && c.errors) {
+      this.displayPasswordMessage = Object.keys(c.errors).map(key => (<any>this.validationMessages.password)[key]).join(' ');
     }
   }
 }
-
