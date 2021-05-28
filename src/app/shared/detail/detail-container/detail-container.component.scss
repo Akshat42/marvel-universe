@@ -1,0 +1,29 @@
+article {
+  background-color: #2e2c2c;
+  background-image: url("/../../assets/images/background/profile-bg.webp");
+  height: 100vh;
+  display: flex;
+}
+
+.article-profile-image {
+  margin: 10px;
+  width: 200px;
+  box-sizing: border-box;
+  border: 3px solid black;
+  object-fit: cover;
+}
+
+.hero-desc {
+  padding: 20px;
+}
+.article-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 80vh;
+  width: 60%;
+  background-color: blanchedalmond;
+  margin: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 10px;
+}
