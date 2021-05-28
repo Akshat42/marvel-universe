@@ -3,8 +3,7 @@
   <section class="article-container" *ngIf="heroData">
     <img class="article-profile-image" src="{{heroData?.thumbnail?.path}}.{{heroData?.thumbnail?.extension}}"
          alt="profile_image">
-    <div  class = "hero-desc">{{heroData.description || "  No description found :(" }}</div>
+    <div  class = "hero-desc">{{heroData.description || "No description found :(" }}</div>
   </section>
 </article>
 
-<ng-template #no_desc>No Description Found :( </ng-template>
