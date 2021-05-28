@@ -1,9 +1,9 @@
 <mu-header></mu-header>
 <article>
-  <section class="article-container">
-    <img class="article-profile-image" src="{{heroData.thumbnail.path}}.{{heroData.thumbnail.extension}}"
+  <section class="article-container" *ngIf="heroData">
+    <img class="article-profile-image" src="{{heroData?.thumbnail?.path}}.{{heroData?.thumbnail?.extension}}"
          alt="profile_image">
-    <div *ngIf='heroData.description !=""; else no_desc' class = "hero-desc">{{heroData.description}}</div>
+    <div  class = "hero-desc">{{heroData.description === "" ? "No description found:(" : heroData.description }}</div>
   </section>
 </article>
 

@@ -6,7 +6,6 @@ import {CardComponent} from './card/card.component';
 import {DetailContainerComponent} from './detail/detail-container/detail-container.component';
 import {HomeRoutingModule} from "../hero/home/home-routing.module";
 import {HttpClientModule} from "@angular/common/http";
-import {NgxUiLoaderModule} from "ngx-ui-loader";
 
 
 @NgModule({
@@ -19,8 +18,7 @@ import {NgxUiLoaderModule} from "ngx-ui-loader";
   imports: [
     CommonModule,
     HomeRoutingModule,
-    HttpClientModule,
-    NgxUiLoaderModule,
+    HttpClientModule
   ],
   exports: [
     HeaderComponent
