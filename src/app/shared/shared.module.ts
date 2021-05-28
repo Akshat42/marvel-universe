@@ -3,9 +3,9 @@ import {CommonModule} from '@angular/common';
 import {HeaderComponent} from './header/header.component';
 import {FooterComponent} from './footer/footer.component';
 import {CardComponent} from './card/card.component';
-import {DetailContainerComponent} from './detail/detail-container/detail-container.component';
 import {HomeRoutingModule} from "../hero/home/home-routing.module";
 import {HttpClientModule} from "@angular/common/http";
+import { DetailDataComponent } from './detail-data/detail-data.component';
 
 
 @NgModule({
@@ -13,7 +13,7 @@ import {HttpClientModule} from "@angular/common/http";
     HeaderComponent,
     FooterComponent,
     CardComponent,
-    DetailContainerComponent
+    DetailDataComponent
   ],
   imports: [
     CommonModule,
@@ -21,7 +21,10 @@ import {HttpClientModule} from "@angular/common/http";
     HttpClientModule
   ],
   exports: [
-    HeaderComponent
+    HeaderComponent,
+    CardComponent,
+    DetailDataComponent,
+    FooterComponent
   ],
 })
 export class SharedModule {

@@ -1,18 +1,19 @@
 import {Component, OnInit} from '@angular/core';
-import {HeroDataService} from "../../../hero/hero-data.service";
-import {ActivatedRoute} from "@angular/router";
-import {Hero} from "../../../model/hero";
+import {Hero} from "../../model/hero";
 import {map} from "rxjs/operators";
+import {HeroDataService} from "../../hero/hero-data.service";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
-  selector: 'mu-detail-container',
-  templateUrl: './detail-container.component.html',
-  styleUrls: ['./detail-container.component.scss']
+  selector: 'mu-detail-data',
+  templateUrl: './detail-data.component.html',
+  styleUrls: ['./detail-data.component.scss']
 })
-export class DetailContainerComponent implements OnInit {
+export class DetailDataComponent implements OnInit {
 
-  constructor(private heroDataService: HeroDataService,
-              private activatedRoute: ActivatedRoute,
+  constructor(
+    private heroDataService: HeroDataService,
+    private activatedRoute: ActivatedRoute,
   ) {
   }
 
@@ -39,5 +40,7 @@ export class DetailContainerComponent implements OnInit {
       },
       error => console.log(error)
     )
+
   }
+
 }
