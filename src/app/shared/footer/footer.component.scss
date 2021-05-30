@@ -1,0 +1,38 @@
+footer {
+  display: flex;
+  background-color: #e62429;
+  margin: 25px 0; //debug
+  justify-content: space-between;
+  box-shadow: 0 1px 6px;
+  min-height: 60px;
+}
+
+img {
+  width: 30px;
+  padding-left: 19px;
+  transition: 0.4s;
+}
+
+.footer-wrapper img {
+  margin-top: 15px;
+}
+
+.footer-wrapper {
+  display: flex;
+  margin-right: 25px;
+}
+
+img:hover {
+  filter: invert(1);
+}
+
+@media screen and (max-width: 767px) {
+  footer {
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+}
