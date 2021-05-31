@@ -1,20 +1,33 @@
-<main>
-  <table>
-    <thead>
-    <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th>Modified</th>
-      <th>Description</th>
-    </tr>
-    </thead>
-    <tbody *ngIf="heroes">
-    <tr *ngFor="let hero of heroes">
-      <td><img src="{{hero?.thumbnail?.path+'.'+hero?.thumbnail?.extension}}" alt="hero_picture" style="width: 40px"></td>
-      <td>{{hero.name}}</td>
-      <td>{{hero.modified}}</td>
-      <td>{{hero.description}}</td>
-    </tr>
-    </tbody>
-  </table>
-</main>
+<div class="popular-page-wrapper">
+  <mu-header></mu-header>
+  <main>
+    <table cellspacing="0">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Modified</th>
+        <th>Description</th>
+        <th>Action</th>
+      </tr>
+      </thead>
+      <tbody *ngIf="heroes">
+      <tr *ngFor="let hero of heroes">
+        <td>{{hero?.id}}</td>
+        <td>{{hero?.name}}</td>
+        <td>{{hero?.modified}}</td>
+        <td>{{hero?.description || "No Description Found :("}}</td>
+        <td id="up-down-button-container">
+          <button class="fav-button">
+            <mat-icon>thumb_up_alt</mat-icon>
+          </button>
+          <button class="fav-button">
+            <mat-icon>thumb_down_alt</mat-icon>
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </main>
+  <mu-footer></mu-footer>
+</div>

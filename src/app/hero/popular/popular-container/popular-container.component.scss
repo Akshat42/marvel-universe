@@ -1,0 +1,34 @@
+.popular-page-wrapper {
+  height: 100vh;
+  background-color: #f7e4e5;
+}
+
+main {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
+}
+ th, td {
+  border-bottom: 1px solid red;
+   border-collapse: collapse;
+   padding: 10px;
+   text-align: center;
+}
+
+th {
+  background-color: #e62429;
+}
+
+tr:nth-child(even) {
+  background-color: #f5bfc1;
+}
+
+.fav-button {
+  border: 0;
+  background-color: inherit;
+}
+
+#up-down-button-container {
+  width: 80px;
+}
