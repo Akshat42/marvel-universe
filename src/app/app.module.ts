@@ -6,17 +6,22 @@ import {AppComponent} from './app.component';
 import {SharedModule} from "./shared/shared.module";
 import {UserModule} from "./user/user.module";
 import {ReactiveFormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
+import {HeroModule} from "./hero/hero.module";
+import {PopularModule} from "./hero/popular/popular.module";
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SharedModule,
     UserModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    PopularModule
   ],
   providers: [],
   bootstrap: [AppComponent]

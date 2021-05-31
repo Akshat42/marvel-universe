@@ -1,7 +1,7 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {PopularContainerComponent} from "./popular-container/popular-container.component";
-
+import {SharedModule} from "../../shared/shared.module";
 
 
 @NgModule({
@@ -9,7 +9,9 @@ import {PopularContainerComponent} from "./popular-container/popular-container.c
     PopularContainerComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    SharedModule
   ]
 })
-export class PopularModule { }
+export class PopularModule {
+}

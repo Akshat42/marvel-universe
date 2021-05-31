@@ -14,8 +14,8 @@ const routes: Routes = [
     loadChildren: () => import('./hero/home/home.module').then(m => m.HomeModule),
     canActivate: [AuthGuard]
   },
-  {path: "popular", component: PopularContainerComponent, canActivate: [AuthGuard]},
-  {path: "detail/:id", component: DetailContainerComponent, canActivate: [AuthGuard]},
+  {path: "popular", component: PopularContainerComponent},
+  {path: "detail/:id", component: DetailContainerComponent},
   {path: "", redirectTo: "welcome", pathMatch: "full"},
   {path: '**', component: PageNotFoundComponent}
 ];
