@@ -1,0 +1,17 @@
+@import "variables";
+
+@mixin flex-container($justify-content, $flex-direction, $align-items) {
+  display: flex;
+  justify-content: $justify-content;
+  flex-direction: $flex-direction;
+  align-items: $align-items;
+
+}
+
+
+@mixin for-phone-only() {
+  @media screen and (max-width: 767px) {
+    @content
+  }
+
+}

@@ -3,8 +3,8 @@ import {CommonModule} from '@angular/common';
 import {HeaderComponent} from './header/header.component';
 import {FooterComponent} from './footer/footer.component';
 import {CardComponent} from './card/card.component';
-import {DetailContainerComponent} from './detail/detail-container/detail-container.component';
 import {HomeRoutingModule} from "../hero/home/home-routing.module";
+import {DetailDataComponent} from "./detail-data/detail-data.component";
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
 
@@ -14,7 +14,7 @@ import {FormsModule} from "@angular/forms";
     HeaderComponent,
     FooterComponent,
     CardComponent,
-    DetailContainerComponent
+    DetailDataComponent
   ],
   imports: [
     CommonModule,
@@ -24,6 +24,8 @@ import {FormsModule} from "@angular/forms";
   ],
   exports: [
     HeaderComponent,
+    FooterComponent,
+    DetailDataComponent,
     CardComponent
   ],
 })

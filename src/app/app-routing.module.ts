@@ -4,8 +4,8 @@ import {RouterModule, Routes} from '@angular/router';
 import {PopularContainerComponent} from "./hero/popular/popular-container/popular-container.component";
 import {PageNotFoundComponent} from "./user/page-not-found/page-not-found.component";
 import {WelcomeComponent} from "./user/welcome/welcome.component";
-import {DetailContainerComponent} from "./shared/detail/detail-container/detail-container.component";
 import {AuthGuard} from "./guard/auth.guard";
+import {DetailContainerComponent} from "./hero/detail/detail-container/detail-container.component";
 
 const routes: Routes = [
   {path: "welcome", component: WelcomeComponent},
