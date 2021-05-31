@@ -5,6 +5,8 @@ import {FooterComponent} from './footer/footer.component';
 import {CardComponent} from './card/card.component';
 import {DetailContainerComponent} from './detail/detail-container/detail-container.component';
 import {HomeRoutingModule} from "../hero/home/home-routing.module";
+import {HttpClientModule} from "@angular/common/http";
+import {FormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -14,12 +16,15 @@ import {HomeRoutingModule} from "../hero/home/home-routing.module";
     CardComponent,
     DetailContainerComponent
   ],
-    imports: [
-        CommonModule,
-        HomeRoutingModule
-    ],
+  imports: [
+    CommonModule,
+    HomeRoutingModule,
+    HttpClientModule,
+    FormsModule
+  ],
   exports: [
-    HeaderComponent
+    HeaderComponent,
+    CardComponent
   ],
 })
 export class SharedModule {

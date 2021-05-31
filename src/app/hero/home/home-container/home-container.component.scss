@@ -1,1 +1,40 @@
+.funtionalities {
+  background: black;
+  padding: 30px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
 
+.search-bar input {
+  border-radius: 20px;
+  width: 300px;
+  height: 35px;
+  outline: 0;
+}
+
+.sort-button button {
+  width: 100px;
+  border-radius: 25px;
+  cursor: pointer;
+  height: 30px;
+  background: red;
+  font-weight: bold;
+}
+.card-container {
+  padding: 0px 30px 30px 30px;
+  background: floralwhite;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.card {
+  padding: 20px;
+  width: 30%;
+  margin: 20px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

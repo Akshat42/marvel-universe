@@ -1,1 +1,14 @@
 <mu-header></mu-header>
+<div class="funtionalities">
+  <div class="search-bar">
+    <input type="text" placeholder="  Search... " (keyup)="searchHeroes($event.target)">
+  </div>
+  <div class="sort-button" (click)="sortHeroes()">
+    <button type="button">Sort</button>
+  </div>
+</div>
+<div class="card-container">
+  <div class="card" *ngFor="let hero of allHeroes | async">
+    <mu-card [hero]="hero"></mu-card>
+  </div>
+</div>

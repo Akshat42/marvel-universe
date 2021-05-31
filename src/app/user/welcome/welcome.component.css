@@ -1,20 +1,12 @@
-<<<<<<< HEAD
 .container {
-  background: beige;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center; }
-
-.title {
-  background: aqua;
-  color: red;
-  align-self: center; }
+  align-items: center;
+  height: 100vh; }
 
 .login {
-  align-self: center; }
-=======
-
->>>>>>> feature/Card
+  align-self: center;
+  background: transparent; }
 
 /*# sourceMappingURL=welcome.component.css.map */
