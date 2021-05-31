@@ -7,21 +7,19 @@ import {SharedModule} from "./shared/shared.module";
 import {UserModule} from "./user/user.module";
 import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
-import {HeroModule} from "./hero/hero.module";
-import {PopularModule} from "./hero/popular/popular.module";
+import {DetailModule} from "./hero/detail/detail.module";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SharedModule,
-    UserModule,
-    ReactiveFormsModule,
     HttpClientModule,
-    PopularModule
+    ReactiveFormsModule,
+    UserModule
   ],
   providers: [],
   bootstrap: [AppComponent]

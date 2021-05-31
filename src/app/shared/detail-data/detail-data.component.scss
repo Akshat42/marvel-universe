@@ -1,0 +1,39 @@
+@import "./src/assets/styles/mixins";
+@import "./src/assets/styles/variables";
+article {
+  background-color: $primary-color;
+  background-image: url("/../../assets/images/background/profile-bg.webp");
+  min-height: 643px;
+  @include flex-container(normal, row, normal)
+}
+
+.header-wrapper {
+  position: absolute;
+  top: 0px;
+  height: 200px;
+  overflow: hidden;
+}
+
+
+.article-profile-image {
+  margin: 10px;
+  width: 200px;
+  box-sizing: border-box;
+  border: 3px solid black;
+  object-fit: cover;
+}
+
+.hero-desc {
+  padding: 20px;
+}
+.article-container {
+  @include flex-container(normal, column, center);
+  min-height: 400px;
+  width: 60%;
+  background-color: $article-container-color;
+  margin: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 10px;
+}
+
+
