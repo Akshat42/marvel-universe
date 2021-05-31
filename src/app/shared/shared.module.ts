@@ -18,9 +18,10 @@ import {HomeRoutingModule} from "../hero/home/home-routing.module";
         CommonModule,
         HomeRoutingModule
     ],
-  exports: [
-    HeaderComponent
-  ],
+    exports: [
+        HeaderComponent,
+        FooterComponent
+    ],
 })
 export class SharedModule {
 }
