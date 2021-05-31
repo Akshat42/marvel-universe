@@ -7,6 +7,7 @@ import {SharedModule} from "./shared/shared.module";
 import {UserModule} from "./user/user.module";
 import {ReactiveFormsModule} from "@angular/forms";
 import {DetailModule} from "./hero/detail/detail.module";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -16,8 +17,7 @@ import {DetailModule} from "./hero/detail/detail.module";
     BrowserModule,
     AppRoutingModule,
     SharedModule,
-    UserModule,
-    DetailModule,
+    HttpClientModule,
     ReactiveFormsModule
   ],
   providers: [],

@@ -1,9 +1,19 @@
+@import "./src/assets/styles/mixins";
+@import "./src/assets/styles/variables";
 article {
-  background-color: #2e2c2c;
+  background-color: $primary-color;
   background-image: url("/../../assets/images/background/profile-bg.webp");
-  height: 100vh;
-  display: flex;
+  min-height: 643px;
+  @include flex-container(normal, row, normal)
 }
+
+.header-wrapper {
+  position: absolute;
+  top: 0px;
+  height: 200px;
+  overflow: hidden;
+}
+
 
 .article-profile-image {
   margin: 10px;
@@ -17,12 +27,10 @@ article {
   padding: 20px;
 }
 .article-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 80vh;
+  @include flex-container(normal, column, center);
+  min-height: 400px;
   width: 60%;
-  background-color: blanchedalmond;
+  background-color: $article-container-color;
   margin: auto;
   border-radius: 10px;
   box-shadow: 0 0 10px;

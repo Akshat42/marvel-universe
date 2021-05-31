@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {DetailContainerComponent} from './detail-container/detail-container.component';
 import {SharedModule} from "../../shared/shared.module";
+import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
@@ -10,7 +11,8 @@ import {SharedModule} from "../../shared/shared.module";
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    HttpClientModule
   ]
 })
 export class DetailModule {
