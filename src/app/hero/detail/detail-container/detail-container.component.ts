@@ -16,7 +16,7 @@ export class DetailContainerComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
   ) { }
 
-  currentHeroData!: Hero;
+  currentHeroData:Hero = {description: "", id: 0, modified: "", name: "", imageUrl: ""}
 
   ngOnInit(): void {
     let heroId = this.activatedRoute.snapshot.params['id'];
@@ -27,10 +27,7 @@ export class DetailContainerComponent implements OnInit {
           name: result.name,
           description: result.description,
           modified: result.modified,
-          thumbnail: {
-            extension: result.thumbnail.extension,
-            path: result.thumbnail.path,
-          }
+          imageUrl: result.thumbnail.path+"."+result.thumbnail.extension
         }
       )
     ).subscribe(

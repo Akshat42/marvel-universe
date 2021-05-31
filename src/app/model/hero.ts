@@ -3,12 +3,6 @@ export interface Hero {
   name: string,
   description: string,
   modified: string,
-  thumbnail: {
-    [key : string]: Thumbnail
-  }
+  imageUrl: string
 }
 
-interface Thumbnail {
-  extension: string,
-  path: string
-}

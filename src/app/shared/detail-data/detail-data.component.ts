@@ -11,7 +11,7 @@ export class DetailDataComponent implements OnInit {
   constructor() {
   }
 
-  @Input() detailData!: Hero;
+  @Input() detailData: Hero ={description: "", id: 0, imageUrl: "", modified: "", name: ""};
 
   ngOnInit(): void {
 
