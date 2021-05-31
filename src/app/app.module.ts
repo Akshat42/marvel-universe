@@ -6,8 +6,8 @@ import {AppComponent} from './app.component';
 import {SharedModule} from "./shared/shared.module";
 import {UserModule} from "./user/user.module";
 import {ReactiveFormsModule} from "@angular/forms";
-import {DetailModule} from "./hero/detail/detail.module";
 import {HttpClientModule} from "@angular/common/http";
+import {DetailModule} from "./hero/detail/detail.module";
 
 @NgModule({
   declarations: [
@@ -18,7 +18,8 @@ import {HttpClientModule} from "@angular/common/http";
     AppRoutingModule,
     SharedModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    UserModule
   ],
   providers: [],
   bootstrap: [AppComponent]
