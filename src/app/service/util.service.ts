@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {AbstractControl} from "@angular/forms";
 
 @Injectable({
@@ -6,6 +6,10 @@ import {AbstractControl} from "@angular/forms";
 })
 export class UtilService {
 
-  constructor() { }
+  constructor() {
+  }
 
+  hideLoader(): void {
+    document.getElementById("loader")!.style.display = "none";
+  }
 }

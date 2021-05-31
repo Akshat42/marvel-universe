@@ -1,7 +1,8 @@
 <div class="popular-page-wrapper">
   <mu-header></mu-header>
   <main>
-    <table cellspacing="0">
+    <mu-loader></mu-loader>
+    <table cellspacing="0" *ngIf="heroes">
       <thead>
       <tr>
         <th>ID</th>
@@ -11,11 +12,11 @@
         <th>Action</th>
       </tr>
       </thead>
-      <tbody *ngIf="heroes">
+      <tbody>
       <tr *ngFor="let hero of heroes">
-        <td>{{hero?.id}}</td>
+        <td><a routerLink="/detail/{{hero.id}}">{{hero?.id}}</a></td>
         <td>{{hero?.name}}</td>
-        <td>{{hero?.modified}}</td>
+        <td>{{hero?.modified | date}}</td>
         <td>{{hero?.description || "No Description Found :("}}</td>
         <td id="up-down-button-container">
           <button class="fav-button">
