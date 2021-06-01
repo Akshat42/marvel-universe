@@ -1,38 +1,17 @@
-* {
-  text-align: center; }
+/* Error: Can't find stylesheet to import.
+ *   ,
+ * 1 | @import "./src/assets/styles/mixins";
+ *   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ *   '
+ *   login.component.scss 1:9  root stylesheet */
 
-.form-group {
-  background: rgba(255, 0, 0, 0.4);
-  padding: 40px;
-  display: flex;
-  flex-direction: column;
-  align-items: center; }
-
-label {
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
   display: block;
-  margin: 10px 0;
-  cursor: pointer; }
-
-button {
-  display: block;
-  margin: 25px 10px 10px 42px;
-  border-radius: 10%;
-  width: 80px;
-  background: lightblue;
-  outline: 0;
-  cursor: pointer; }
-
-input {
-  border-radius: 10%; }
-
-.invalid-feedback {
-  display: block;
-  color: red; }
-
-.is-invalid {
-  color: red; }
-
-.is-invalid input {
-  border-color: red; }
-
-/*# sourceMappingURL=login.component.css.map */
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Can't find stylesheet to import.\a   \2577 \a 1 \2502  @import \"./src/assets/styles/mixins\";\a   \2502          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\a   \2575 \a   login.component.scss 1:9  root stylesheet";
+}
