@@ -1,9 +1,10 @@
+@import "./src/assets/styles/mixins";
+@import "./src/assets/styles/variables";
+
 .funtionalities {
-  background: black;
+  background: $background-color;
   padding: 30px;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+  @include flex-container(space-evenly, row, center);
 }
 
 .search-bar input {
@@ -20,32 +21,24 @@
 
 button {
   width: 150px;
-  border-radius: 25px;
-  cursor: pointer;
   height: 30px;
-  background: red;
-  font-weight: bold;
+  @include button-styles();
 }
 
 button:hover {
-  background: grey;
+  background: $hover-color;
 }
 
 .card-container {
   padding: 0px 30px 30px 30px;
   background: floralwhite;
-  display: flex;
+  @include flex-container(space-evenly, row, center);
   flex-wrap: wrap;
-  justify-content: space-evenly;
-  align-items: center;
 }
 
 .card {
   padding: 20px;
   width: 30%;
   margin: 20px 0px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  @include flex-container(center, column, center);
 }

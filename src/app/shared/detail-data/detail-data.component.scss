@@ -2,7 +2,6 @@
 @import "./src/assets/styles/variables";
 article {
   background-color: $primary-color;
-  background-image: url("/../../assets/images/background/profile-bg.webp");
   min-height: 643px;
   @include flex-container(normal, row, normal)
 }
