@@ -7,6 +7,7 @@ import {HomeRoutingModule} from "../hero/home/home-routing.module";
 import {DetailDataComponent} from "./detail-data/detail-data.component";
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
+import { LoaderComponent } from './loader/loader.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import {FormsModule} from "@angular/forms";
     HeaderComponent,
     FooterComponent,
     CardComponent,
-    DetailDataComponent
+    DetailDataComponent,
+    LoaderComponent
   ],
   imports: [
     CommonModule,
@@ -25,6 +27,8 @@ import {FormsModule} from "@angular/forms";
   exports: [
     HeaderComponent,
     FooterComponent,
+    DetailDataComponent,
+    LoaderComponent,
     DetailDataComponent,
     CardComponent
   ],

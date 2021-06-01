@@ -1,5 +1,7 @@
+@import "./src/assets/styles/mixins";
+@import "./src/assets/styles/variables";
+
 .container {
-  position: absolute;
-  top: 30%;
-  left: 40%;
+  @include flex-container(center, row, center);
+  height: 97vh;
 }

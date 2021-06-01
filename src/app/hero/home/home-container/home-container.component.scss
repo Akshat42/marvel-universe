@@ -1,10 +1,18 @@
 @import "./src/assets/styles/mixins";
 @import "./src/assets/styles/variables";
 
+.content {
+  overflow: auto;
+}
+
 .funtionalities {
   background: $background-color;
   padding: 30px;
   @include flex-container(space-evenly, row, center);
+  @include for-phone-only() {
+    display: none;
+  }
+  margin-top: 50px;
 }
 
 .search-bar input {
@@ -41,4 +49,7 @@ button:hover {
   width: 30%;
   margin: 20px 0px;
   @include flex-container(center, column, center);
+  @include for-phone-only() {
+    width: 100%;
+  }
 }

@@ -1,7 +1,6 @@
 @import "./src/assets/styles/mixins";
 @import "./src/assets/styles/variables";
 article {
-  background-color: $primary-color;
   min-height: 643px;
   @include flex-container(normal, row, normal)
 }

@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {HeroDataService} from "../../hero-data.service";
 import {Observable} from "rxjs";
 import {ActivatedRoute, Router} from "@angular/router";
+import {UtilService} from "../../../service/util.service";
 
 
 @Component({
@@ -14,7 +15,7 @@ export class HomeContainerComponent implements OnInit {
   filterHero!: string;
   searchedString!: string;
 
-  constructor(private heroDataService: HeroDataService, private router: Router, private route: ActivatedRoute) {
+  constructor(private heroDataService: HeroDataService, private utilService: UtilService, private router: Router, private route: ActivatedRoute) {
   }
 
   changeUrl() {
@@ -40,6 +41,8 @@ export class HomeContainerComponent implements OnInit {
 
   getCharacters() {
     this.allHeroes = this.heroDataService.getAllHeroes();
+    this.utilService.hideLoader();
+
   }
 
   sortHeroes() {

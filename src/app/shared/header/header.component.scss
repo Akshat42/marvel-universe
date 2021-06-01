@@ -9,6 +9,13 @@ $mu-header-hover-color: #2e2c2c;
   padding: 0;
 }
 
+.header-container {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  margin-bottom: -50px;
+}
+
 .header-flex-wrapper {
   display: flex;
   justify-content: space-between;

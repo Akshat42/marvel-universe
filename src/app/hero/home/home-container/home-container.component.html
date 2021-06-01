@@ -1,16 +1,19 @@
 <mu-header></mu-header>
-<div class="funtionalities">
-  <div class="search-bar">
-    <input type="text" placeholder="  Search... " #searchedString>
-    <button type="button" (click)="searchHeroes(searchedString.value)">GO</button>
+<div class="content">
+  <div class="funtionalities">
+    <div class="search-bar">
+      <input type="text" placeholder="  Search... " #searchedString>
+      <button type="button" (click)="searchHeroes(searchedString.value)">GO</button>
+    </div>
+    <div class="sort-button" (click)="sortHeroes()">
+      <button type="button">SORT</button>
+    </div>
   </div>
-  <div class="sort-button" (click)="sortHeroes()">
-    <button type="button">SORT</button>
-  </div>
-</div>
-<div class="card-container">
-  <div class="card" *ngFor="let hero of allHeroes | async">
-    <mu-card [hero]="hero"></mu-card>
+  <mu-loader></mu-loader>
+  <div class="card-container">
+    <div class="card" *ngFor="let hero of allHeroes | async">
+      <mu-card [hero]="hero"></mu-card>
+    </div>
   </div>
 </div>
 <mu-footer></mu-footer>
