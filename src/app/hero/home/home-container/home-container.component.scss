@@ -13,14 +13,24 @@
   outline: 0;
 }
 
-.sort-button button {
-  width: 100px;
+.search-bar button {
+  margin-left: 20px;
+  width: 80px;
+}
+
+button {
+  width: 150px;
   border-radius: 25px;
   cursor: pointer;
   height: 30px;
   background: red;
   font-weight: bold;
 }
+
+button:hover {
+  background: grey;
+}
+
 .card-container {
   padding: 0px 30px 30px 30px;
   background: floralwhite;
@@ -29,6 +39,7 @@
   justify-content: space-evenly;
   align-items: center;
 }
+
 .card {
   padding: 20px;
   width: 30%;

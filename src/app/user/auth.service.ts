@@ -41,11 +41,4 @@ export class AuthService {
     }
     return this.loginStatusChecker;
   }
-
-
-  public logout() {
-    this.loginStatus = false
-    localStorage.removeItem('username');
-    localStorage.setItem('loginStatus', String(this.loginStatus))
-  }
 }

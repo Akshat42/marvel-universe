@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {HeroDataService} from "../../hero/hero-data.service";
 
 @Component({
   selector: 'mu-card',
@@ -7,12 +8,13 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class CardComponent implements OnInit {
 
-  constructor() {
+  constructor(private heroDataService: HeroDataService) {
   }
 
-  @Input() hero!: any;
+  @Input() hero: any;
+
   ngOnInit(): void {
-
   }
+
 }
 

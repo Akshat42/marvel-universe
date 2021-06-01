@@ -1,10 +1,11 @@
 <mu-header></mu-header>
 <div class="funtionalities">
   <div class="search-bar">
-    <input type="text" placeholder="  Search... " (keyup)="searchHeroes($event.target)">
+    <input type="text" placeholder="  Search... " #searchedString>
+    <button type="button" (click)="searchHeroes(searchedString.value)">GO</button>
   </div>
   <div class="sort-button" (click)="sortHeroes()">
-    <button type="button">Sort</button>
+    <button type="button">SORT</button>
   </div>
 </div>
 <div class="card-container">

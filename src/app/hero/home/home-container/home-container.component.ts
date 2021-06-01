@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {HeroDataService} from "../../hero-data.service";
-import {Observable, Subscription} from "rxjs";
-import {Router} from "@angular/router";
+import {Observable} from "rxjs";
+import {ActivatedRoute, Router} from "@angular/router";
 
 
 @Component({
@@ -12,13 +12,30 @@ import {Router} from "@angular/router";
 export class HomeContainerComponent implements OnInit {
 
   filterHero!: string;
-    constructor(private heroDataService: HeroDataService, private router: Router) {
+  searchedString!: string;
+
+  constructor(private heroDataService: HeroDataService, private router: Router, private route: ActivatedRoute) {
+  }
+
+  changeUrl() {
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams: {
+        search: this.searchedString
+      },
+      queryParamsHandling: "merge",
+    });
   }
 
   allHeroes!: Observable<any>;
 
   ngOnInit(): void {
     this.getCharacters();
+
+    this.route.queryParams.subscribe((params) => {
+      this.searchedString = params.search;
+      this.searchHeroes(this.searchedString);
+    })
   }
 
   getCharacters() {
@@ -32,11 +49,13 @@ export class HomeContainerComponent implements OnInit {
     this.allHeroes = this.heroDataService.getHeroesSortedByName();
   }
 
-  searchHeroes(event: any) {
-    if (event.value === '') {
+  searchHeroes(searchedValue: string) {
+    this.searchedString = searchedValue;
+    if (searchedValue === '') {
       this.getCharacters();
     } else {
-      this.allHeroes = this.heroDataService.getFilteredHeroes(event.value);
+      this.allHeroes = this.heroDataService.getFilteredHeroes(searchedValue);
     }
+    this.changeUrl();
   }
 }
