@@ -3,7 +3,6 @@ import {HeroDataService} from "../../hero-data.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {UtilService} from "../../../service/util.service";
 import {Card} from "../../../model/card"
-import {query} from "@angular/animations";
 
 @Component({
   selector: 'mu-home-container',
@@ -44,7 +43,6 @@ export class HomeContainerComponent implements OnInit {
   }
 
   getHeroDetail(heroId: number){
-    console.log(heroId);
     this._router.navigate([`./detail/${heroId}`])
   }
 
