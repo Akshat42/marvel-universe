@@ -9,18 +9,15 @@ import {AuthService} from "../user/auth.service";
 export class AuthGuard implements CanActivate {
   constructor(private authService: AuthService, private router: Router) {
   }
-
+  statusFlag: boolean = true;
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return this.checkLoggedIn(state.url);
-  }
-
-  checkLoggedIn(url: string): boolean {
     if (!this.authService.isLoggedIn) {
-      this.authService.redirectUrl = url;
-      this.router.navigate(['/welcome']);
+      this.router.navigate(['welcome']);
+      this.authService.redirectUrl = state.url;
+      this.statusFlag = false;
     }
-    return this.authService.isLoggedIn;
+    return this.statusFlag;
   }
 }

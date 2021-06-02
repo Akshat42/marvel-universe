@@ -8,6 +8,12 @@
 
 }
 
+@mixin button-styles() {
+  border-radius: 25px;
+  cursor: pointer;
+  background: $primary-color;
+  font-weight: bold;
+}
 
 @mixin for-phone-only() {
   @media screen and (max-width: 767px) {

@@ -1,15 +1,7 @@
-.container{
-  background: beige;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.title{
-  background: aqua;
-  color: red;
-  align-self: center;
-}
-.login{
-  align-self: center;
+@import "./src/assets/styles/mixins";
+@import "./src/assets/styles/variables";
+
+.container {
+  @include flex-container(center, row, center);
+  height: 97vh;
 }
