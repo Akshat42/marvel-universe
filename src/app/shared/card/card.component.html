@@ -1,9 +1,9 @@
-<a routerLink="/detail/{{hero.id}}" >
+<a (click)="getDetailLink(card.id)">
   <div class="character-image">
-    <img src="{{hero.thumbnail.path}}.{{hero.thumbnail.extension}}" alt="{{hero.name}}">
+    <img [src]="card?.imageUrl"  [alt]="card?.heroName">
   </div>
   <div class="title">
-    {{hero.name}}
+    {{card?.heroName}}
   </div>
 </a>
 

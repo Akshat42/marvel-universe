@@ -25,10 +25,6 @@ export class HeroDataService {
     return this.http.get<any>(environment.baseUrl + 'comics/1158/characters?' + 'orderBy=-name' + '&apikey=' + environment.apiKey).pipe(map((data: any) => data.data.results));
   }
 
-  getFilteredHeroesSortedByName(filterString: string): Observable<any> {
-    return this.http.get<any>(environment.baseUrl + 'comics/1158/characters?' + 'nameStartsWith=' + filterString + '&orderBy=-name' + '&apikey=' + environment.apiKey).pipe(map((data: any) => data.data.results));
-  }
-
   getHeroDetail(heroId: number): Observable<any> {
     return this.http
       .get<any>(environment.baseUrl + "characters/" + heroId + "?apikey=" + environment.apiKey).pipe(map(rawData => rawData.data.results[0]));

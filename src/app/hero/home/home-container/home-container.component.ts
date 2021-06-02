@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {HeroDataService} from "../../hero-data.service";
-import {Observable} from "rxjs";
 import {ActivatedRoute, Router} from "@angular/router";
 import {UtilService} from "../../../service/util.service";
-
+import {Card} from "../../../model/card"
+import {query} from "@angular/animations";
 
 @Component({
   selector: 'mu-home-container',
@@ -12,44 +12,69 @@ import {UtilService} from "../../../service/util.service";
 })
 export class HomeContainerComponent implements OnInit {
 
-  filterHero!: string;
-  searchedString!: string;
+  searchedString: string = '';
+  inputValue!: string;
 
-  constructor(private heroDataService: HeroDataService, private utilService: UtilService, private router: Router, private route: ActivatedRoute) {
+  constructor(private _heroDataService: HeroDataService, private _utilService: UtilService, private _router: Router, private _route: ActivatedRoute) {
   }
 
-  changeUrl() {
-    this.router.navigate([], {
-      relativeTo: this.route,
+  changeUrl(searchString: string) {
+    this._router.navigate([], {
+      relativeTo: this._route,
       queryParams: {
-        search: this.searchedString
+        search: searchString
       },
       queryParamsHandling: "merge",
     });
   }
 
-  allHeroes!: Observable<any>;
+  allHeroes!: Card[];
 
   ngOnInit(): void {
     this.getCharacters();
+    this._route.queryParams.subscribe((params) => {
+        if (this.inputValue === '') {
+          this.getCharacters();
+        } else {
+          this.inputValue = params.search;
+          this.searchHeroes(this.inputValue);
+        }
+      }
+    )
+  }
 
-    this.route.queryParams.subscribe((params) => {
-      this.searchedString = params.search;
-      this.searchHeroes(this.searchedString);
-    })
+  getHeroDetail(heroId: number){
+    console.log(heroId);
+    this._router.navigate([`./detail/${heroId}`])
+  }
+
+  getHeroDetails(heroes: any) {
+    this.allHeroes = [];
+    heroes.forEach((hero: any) => {
+      this.allHeroes.push({
+        imageUrl: hero.thumbnail.path + "." + hero.thumbnail.extension,
+        heroName: hero.name,
+        id: hero.id
+      });
+    });
+    this._utilService.hideLoader();
   }
 
   getCharacters() {
-    this.allHeroes = this.heroDataService.getAllHeroes();
-    this.utilService.hideLoader();
-
+    this._heroDataService.getAllHeroes().subscribe(heroes => {
+        this.getHeroDetails(heroes);
+      },
+      error => console.log(error)
+    );
   }
 
+
   sortHeroes() {
-    if (this.filterHero !== '') {
-      this.allHeroes = this.heroDataService.getFilteredHeroesSortedByName(this.filterHero);
-    }
-    this.allHeroes = this.heroDataService.getHeroesSortedByName();
+    this._heroDataService.getHeroesSortedByName().subscribe(heroes => {
+        this.getHeroDetails(heroes);
+      },
+      error =>  console.log(error)
+    );
   }
 
   searchHeroes(searchedValue: string) {
@@ -57,8 +82,12 @@ export class HomeContainerComponent implements OnInit {
     if (searchedValue === '') {
       this.getCharacters();
     } else {
-      this.allHeroes = this.heroDataService.getFilteredHeroes(searchedValue);
+      this._heroDataService.getFilteredHeroes(searchedValue).subscribe(heroes => {
+          this.getHeroDetails(heroes);
+        },
+        error => console.log(error)
+      );
+      this.changeUrl(searchedValue);
     }
-    this.changeUrl();
   }
 }
