@@ -3,7 +3,7 @@
 
 .popular-page-wrapper {
   height: 100vh;
-  background-color: #ede6e6;
+  background-image: $popular-page-linear-gradient
 }
 
 main {
@@ -39,4 +39,8 @@ tr:hover {
 
 #up-down-button-container {
   width: 80px;
+}
+
+.sort-button {
+  color: white;
 }

@@ -9,7 +9,15 @@ export class UtilService {
   constructor() {
   }
 
+
+
   hideLoader(): void {
     document.getElementById("loader")!.style.display = "none";
   }
+
+
+
+
+
+
 }

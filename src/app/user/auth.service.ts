@@ -28,14 +28,27 @@ export class AuthService {
       this.loginStatus = true;
       localStorage.setItem("username", JSON.stringify(item.name));
       localStorage.setItem('loginStatus', String(this.loginStatus));
+      let currentUser = {
+        userName: item.name,
+        loginStatus: true
+      }
+      localStorage.setItem("currentUser", JSON.stringify(currentUser));
       this.message = "Login Successful"
+      let userStats = {
+        userName: item.name,
+        upvote: [],
+        downvote: []
+      }
+      if (localStorage.getItem(item.name) === null) {
+        localStorage.setItem(item.name, JSON.stringify(userStats));
+      }
     } else {
       this.message = "Check Your Credentials";
     }
     return this.message;
   }
 
-  get isLoggedIn(): boolean{
+  get isLoggedIn(): boolean {
     return this.loginStatus;
   }
 
