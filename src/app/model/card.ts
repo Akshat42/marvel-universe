@@ -1,5 +1,5 @@
 export interface Card {
   imageUrl: string,
-  heroName: string,
+  cardName: string,
   id: number
 }

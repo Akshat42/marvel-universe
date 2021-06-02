@@ -11,14 +11,14 @@ export class CardComponent implements OnInit {
   constructor() {
   }
 
-  @Input() card: Card = {imageUrl: '', heroName: '', id: 0};
-  @Output() newItemEvent = new EventEmitter<number>();
+  @Input() card: Card = {imageUrl: '', cardName: '', id: 0};
+  @Output() cardClickEmitter = new EventEmitter<number>();
 
   ngOnInit(): void {
   }
 
-  getDetailLink(heroId: number) {
-    this.newItemEvent.emit(heroId);
+  getDetailLink(id: number) {
+    this.cardClickEmitter.emit(id);
   }
 }
 

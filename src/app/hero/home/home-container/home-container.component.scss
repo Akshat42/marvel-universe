@@ -2,7 +2,8 @@
 @import "./src/assets/styles/variables";
 
 .content {
-  overflow: auto;
+  overflow: scroll;
+  height: 800px;
 }
 
 .funtionalities {

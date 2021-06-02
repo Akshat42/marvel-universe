@@ -1,8 +1,10 @@
 @import "./src/assets/styles/mixins";
 @import "./src/assets/styles/variables";
+
 article {
-  min-height: 643px;
-  @include flex-container(normal, row, normal)
+  height: 97vh;
+  background: linear-gradient(45deg, black, transparent);
+  @include flex-container(normal, row, normal);
 }
 
 .header-wrapper {
@@ -24,6 +26,7 @@ article {
 .hero-desc {
   padding: 20px;
 }
+
 .article-container {
   @include flex-container(normal, column, center);
   min-height: 400px;

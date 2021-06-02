@@ -53,7 +53,7 @@ export class HomeContainerComponent implements OnInit {
     heroes.forEach((hero: any) => {
       this.allHeroes.push({
         imageUrl: hero.thumbnail.path + "." + hero.thumbnail.extension,
-        heroName: hero.name,
+        cardName: hero.name,
         id: hero.id
       });
     });
