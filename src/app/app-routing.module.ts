@@ -6,6 +6,7 @@ import {PageNotFoundComponent} from "./user/page-not-found/page-not-found.compon
 import {WelcomeComponent} from "./user/welcome/welcome.component";
 import {AuthGuard} from "./guard/auth.guard";
 import {DetailContainerComponent} from "./hero/detail/detail-container/detail-container.component";
+import {ComicContainerComponent} from "./hero/comic-container/comic-container.component";
 
 const routes: Routes = [
   {path: "welcome", component: WelcomeComponent},
@@ -16,6 +17,7 @@ const routes: Routes = [
   },
   {path: "popular", component: PopularContainerComponent, canActivate: [AuthGuard]},
   {path: "detail/:id", component: DetailContainerComponent,canActivate: [AuthGuard]},
+  {path: "comics", component: ComicContainerComponent,canActivate: [AuthGuard]},
   {path: "", redirectTo: "welcome", pathMatch: "full"},
   {path: '**', component: PageNotFoundComponent}
 ];
