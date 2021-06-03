@@ -14,12 +14,16 @@ article {
   overflow: hidden;
 }
 
+.content-wrapper {
+  @include flex-container(normal,column,center);
+}
+
 
 .article-profile-image {
+  min-width: 200px;
   margin: 10px;
   width: 200px;
   box-sizing: border-box;
-  border: 3px solid black;
   object-fit: cover;
 }
 

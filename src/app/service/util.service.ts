@@ -102,10 +102,4 @@ export class UtilService {
     return false;
   }
 
-
-  hideLoader(): void {
-    document.getElementById("loader")!.style.display = "none";
-  }
-
-
 }
