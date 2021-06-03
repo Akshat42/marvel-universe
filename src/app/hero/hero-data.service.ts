@@ -4,6 +4,7 @@ import {environment} from "../../environments/environment";
 import {map} from "rxjs/operators";
 import {Observable} from "rxjs";
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -20,6 +21,18 @@ export class HeroDataService {
         rawData => rawData.data.results
       )
     )
+  }
+
+  getAllHeroes(): Observable<any> {
+    return this.http.get<any>(environment.baseUrl + 'comics/1158/characters?' +'apikey=' + environment.apiKey).pipe(map((data: any) => data.data.results));
+  }
+
+  getFilteredHeroes(filterString: string): Observable<any> {
+    return this.http.get(environment.baseUrl + 'comics/1158/characters?' + 'nameStartsWith=' + filterString + '&apikey=' + environment.apiKey).pipe(map((data: any) => data.data.results));
+  }
+
+  getHeroesSortedByName(): Observable<any> {
+    return this.http.get<any>(environment.baseUrl + 'comics/1158/characters?' + 'orderBy=-name' + '&apikey=' + environment.apiKey).pipe(map((data: any) => data.data.results));
   }
 
   getHeroDetail(heroId: number): Observable<any> {

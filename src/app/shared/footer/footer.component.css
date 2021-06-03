@@ -1,6 +1,9 @@
-/*
-Error: File to import not found or unreadable: ./src/assets/styles/mixins.
-        on line 1 of footer.component.scss
+/* Error: Can't find stylesheet to import.
+ *   ,
+ * 1 | @import './src/assets/styles/mixins';
+ *   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ *   '
+ *   footer.component.scss 1:9  root stylesheet */
 
 1: @import './src/assets/styles/mixins';
 2: @import "src/assets/styles/variables";
@@ -47,5 +50,9 @@ footer.component.scss:1
 */
 body:before {
   white-space: pre;
-  font-family: monospace;
-  content: "Error: File to import not found or unreadable: ./src/assets/styles/mixins.\A         on line 1 of footer.component.scss\A \A 1: @import './src/assets/styles/mixins';\A 2: @import \"src/assets/styles/variables\";\A 3: \A 4: footer {\A 5:   @include flex-container(space-between,row,normal);\A 6:   box-shadow: 0 1px 6px;"; }
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Can't find stylesheet to import.\a   \2577 \a 1 \2502  @import './src/assets/styles/mixins';\a   \2502          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\a   \2575 \a   footer.component.scss 1:9  root stylesheet";
+}

@@ -6,8 +6,7 @@ import {DetailModule} from "./detail/detail.module";
 
 
 @NgModule({
-  declarations: [
-  ],
+  declarations: [],
   imports: [
     CommonModule,
     SharedModule,

@@ -17,6 +17,12 @@
   border-collapse: collapse;
   padding: $cell-padding;
   text-align: $text-align;
+
+@mixin button-styles() {
+  border-radius: 25px;
+  cursor: pointer;
+  background: $primary-color;
+  font-weight: bold;
 }
 
 @mixin for-phone-only() {
