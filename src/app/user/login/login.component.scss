@@ -1,39 +1,45 @@
-*{
+@import "./src/assets/styles/mixins";
+@import "./src/assets/styles/variables";
+
+* {
   text-align: center;
 }
-.form-group{
-  margin-top: 30px;
-  border: 2px solid red;
-  padding: 40px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+
+form {
+  background: rgba(255, 0, 0, 0.4);
+  padding: 50px;
+  margin-top: 100px;
+  @include flex-container(center, column, center);
 }
-label{
+
+label {
   display: block;
   margin: 10px 0;
   cursor: pointer;
+  font-weight: bolder;
 }
-button{
+
+button {
   display: block;
-  margin: 25px 10px 10px 42px;
-  border-radius: 10%;
   width: 80px;
-  background: lightblue;
-  outline: 0;
-  cursor: pointer;
+  margin: 25px 0px;
+  @include button-styles();
 }
-input{
-  border-radius: 10%;
+
+input {
+  border-radius: 25px;
 }
-.invalid-feedback{
+
+.invalid-feedback {
   display: block;
-  color: red;
+  color: $primary-color;
 }
-.is-invalid{
-  color: red;
+
+.is-invalid {
+  color: $primary-color;
 }
-.is-invalid input{
-  border-color:red;
+
+.is-invalid input {
+  border-color: $primary-color;
 }
 

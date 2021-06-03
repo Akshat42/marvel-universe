@@ -103,4 +103,9 @@ export class UtilService {
   }
 
 
+  hideLoader(): void {
+    document.getElementById("loader")!.style.display = "none";
+  }
+
+
 }

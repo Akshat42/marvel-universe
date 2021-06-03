@@ -1,0 +1,26 @@
+@import "./src/assets/styles/variables";
+
+.character-image img {
+  min-height: 374px;
+  max-height: 374px;
+  align-self: center;
+  width: 100%;
+}
+
+.title {
+  margin-top: 8px;
+  align-self: center;
+}
+
+a {
+  text-align: center;
+  color: $background-color;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+a:hover img {
+  box-shadow: 10px 10px 30px 10px $hover-color;
+}
+

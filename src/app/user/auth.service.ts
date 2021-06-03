@@ -1,5 +1,4 @@
 import {Injectable} from '@angular/core';
-import {User} from "../model/user";
 
 
 const userDetails = {
@@ -20,7 +19,8 @@ export class AuthService {
 
   message: string = '';
   loginStatus = false;
-  redirectUrl!: string;
+  redirectUrl: any;
+  loginStatusChecker: boolean = false;
 
   public login(email: string, password: string): string {
     let item = userDetails.users.find((item) => item.email === email && item.password === password);
@@ -49,12 +49,9 @@ export class AuthService {
   }
 
   get isLoggedIn(): boolean {
-    return this.loginStatus;
-  }
-
-  public logout() {
-    this.loginStatus = false
-    localStorage.removeItem('username');
-    localStorage.setItem('loginStatus', String(this.loginStatus))
+    if (localStorage.getItem('loginStatus') === 'true') {
+      this.loginStatusChecker = true;
+    }
+    return this.loginStatusChecker;
   }
 }

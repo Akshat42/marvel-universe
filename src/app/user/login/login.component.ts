@@ -26,12 +26,12 @@ export class LoginComponent implements OnInit {
     }
   };
 
-  constructor(private router: Router, private formControlService: FormControlValidationService, private formBuilder: FormBuilder, private authService: AuthService) {
+  constructor(private _router: Router, private _formControlService: FormControlValidationService, private _formBuilder: FormBuilder, private _authService: AuthService) {
   }
 
   ngOnInit(): void {
-    this.loginForm = this.formBuilder.group({
-      email: ['', [Validators.required, this.formControlService.emailPatternMatcher]],
+    this.loginForm = this._formBuilder.group({
+      email: ['', [Validators.required, this._formControlService.emailPatternMatcher]],
       password: ['', [Validators.minLength(8), Validators.required]]
     })
 
@@ -47,13 +47,13 @@ export class LoginComponent implements OnInit {
 
   onSubmit(): void {
     if (this.loginForm.valid) {
-      this.authService.login(this.loginForm.get('email')?.value, this.loginForm.get('password')?.value);
-      if (this.authService.redirectUrl) {
-        this.router.navigateByUrl(this.authService.redirectUrl);
+      this._authService.login(this.loginForm.get('email')?.value, this.loginForm.get('password')?.value);
+      if (this._authService.redirectUrl) {
+        this._router.navigateByUrl(this._authService.redirectUrl);
       } else {
-        this.router.navigate(['/home'])
+        this._router.navigate(['/home'])
       }
-      this.loginStatusMessage = this.authService.message;
+      this.loginStatusMessage = this._authService.message;
     }
   }
 
