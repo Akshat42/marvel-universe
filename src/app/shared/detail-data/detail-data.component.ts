@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Hero} from "../../model/hero";
+import {UtilService} from "../../service/util.service";
 
 @Component({
   selector: 'mu-detail-data',
@@ -10,7 +11,7 @@ export class DetailDataComponent implements OnInit {
 
   constructor() {
   }
-
+  utilService = new UtilService();
   @Input() detailData: Hero ={description: "", id: 0, imageUrl: "", modified: "", name: "", votes: 0};
 
   ngOnInit(): void {

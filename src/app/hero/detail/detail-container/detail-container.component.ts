@@ -25,7 +25,7 @@ export class DetailContainerComponent implements OnInit {
         (result) => <Hero>{
           id: result.id,
           name: result.name,
-          description: result.description,
+          description: result.description || "No Description Found :(",
           modified: result.modified,
           imageUrl: result.thumbnail.path+"."+result.thumbnail.extension
         }
