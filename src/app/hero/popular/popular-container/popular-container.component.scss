@@ -1,0 +1,47 @@
+@import "src/assets/styles/variables";
+@import "src/assets/styles/mixins";
+
+.popular-page-wrapper {
+  min-height: 100vh;
+  background-image: $popular-page-linear-gradient;
+  overflow: scroll;
+}
+
+main {
+  margin-top: 10%;
+  width: 80%;
+  @include mx-auto;
+}
+
+th, td {
+  border-bottom: 1px solid lightgray;
+  min-width: 120px;
+  @include table-basic(10px, center);
+}
+
+th {
+  background-color: $table-color;
+  color: $text-color;
+}
+
+tr {
+  transition: 0.3s;
+}
+
+
+tr:hover {
+  background-color: $table-hover-color;
+}
+
+.fav-button {
+  border: 0;
+  background-color: inherit;
+}
+
+#up-down-button-container {
+  width: 80px;
+}
+
+.sort-button {
+  color: white;
+}

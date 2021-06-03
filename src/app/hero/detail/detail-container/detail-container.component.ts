@@ -16,7 +16,7 @@ export class DetailContainerComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
   ) { }
 
-  currentHeroData:Hero = {description: "", id: 0, modified: "", name: "", imageUrl: ""}
+  currentHeroData:Hero = {description: "", id: 0, modified: "", name: "", imageUrl: "", votes: 0}
 
   ngOnInit(): void {
     let heroId = this.activatedRoute.snapshot.params['id'];
@@ -25,7 +25,7 @@ export class DetailContainerComponent implements OnInit {
         (result) => <Hero>{
           id: result.id,
           name: result.name,
-          description: result.description,
+          description: result.description || "No Description Found :(",
           modified: result.modified,
           imageUrl: result.thumbnail.path+"."+result.thumbnail.extension
         }
