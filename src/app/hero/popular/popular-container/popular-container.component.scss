@@ -2,14 +2,15 @@
 @import "src/assets/styles/mixins";
 
 .popular-page-wrapper {
-  height: 100vh;
-  background-image: $popular-page-linear-gradient
+  min-height: 100vh;
+  background-image: $popular-page-linear-gradient;
+  overflow: scroll;
 }
 
 main {
+  margin-top: 10%;
   width: 80%;
   @include mx-auto;
-  margin-top: 5%;
 }
 
 th, td {
