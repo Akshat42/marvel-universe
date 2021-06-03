@@ -14,6 +14,6 @@ export class WelcomeComponent implements OnInit {
   }
   public pageTitle = "Welcome to the Marvel Universe";
   goToLogin(){
-    this._router.navigate([{outlets: {loginPage: ['login']}}]);
+    this._router.navigate([{outlets: {popup: ['login']}}]);
   }
 }

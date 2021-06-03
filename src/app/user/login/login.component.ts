@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit {
       if (this._authService.redirectUrl) {
         this._router.navigateByUrl(this._authService.redirectUrl);
       } else {
-        this._router.navigate([{outlets: {loginPage: null, primary: ['home']}}]);
+        this._router.navigate([{outlets: {popup: null, primary: ['home']}}]);
       }
       this.loginStatusMessage = this._authService.message;
     }
@@ -72,7 +72,6 @@ export class LoginComponent implements OnInit {
   }
 
   closeModal(){
-    this._router.navigate([{outlets: {loginPage: null, primary: ['welcome']}}]);
-    document.getElementById('form-group')!.style.display='none';
+    this._router.navigate([{outlets: {popup: null, primary: ['welcome']}}]);
   }
 }

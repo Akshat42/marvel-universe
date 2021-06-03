@@ -10,7 +10,7 @@ import {LoginComponent} from "./user/login/login.component";
 
 const routes: Routes = [
   {path: "welcome", component: WelcomeComponent},
-  {path: "login", component: LoginComponent, outlet: "loginPage"},
+  {path: "login", component: LoginComponent, outlet: "popup"},
   {
     path: "home",
     loadChildren: () => import('./hero/home/home.module').then(m => m.HomeModule),
