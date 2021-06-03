@@ -3,6 +3,7 @@ export interface Hero {
   name: string,
   description: string,
   modified: string,
-  imageUrl: string
+  imageUrl: string,
+  votes: number
 }
 

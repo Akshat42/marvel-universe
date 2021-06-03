@@ -1,7 +1,9 @@
 <article>
-  <section class="article-container" *ngIf="detailData">
-    <img class="article-profile-image" src="{{detailData?.imageUrl}}"
-         alt="profile_image">
-    <div  class = "hero-desc">{{detailData?.description || "No description found :(" }}</div>
+  <section  class="article-container" *ngIf="detailData">
+    <mu-loader></mu-loader>
+    <div class="content-wrapper">
+      <img class="article-profile-image" src="{{detailData?.imageUrl}}" (load)="utilService.hideLoader()">
+      <div  class = "hero-desc">{{detailData?.description}}</div>
+    </div>
   </section>
 </article>
