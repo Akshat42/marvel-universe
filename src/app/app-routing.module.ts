@@ -6,9 +6,11 @@ import {PageNotFoundComponent} from "./user/page-not-found/page-not-found.compon
 import {WelcomeComponent} from "./user/welcome/welcome.component";
 import {AuthGuard} from "./guard/auth.guard";
 import {DetailContainerComponent} from "./hero/detail/detail-container/detail-container.component";
+import {LoginComponent} from "./user/login/login.component";
 
 const routes: Routes = [
   {path: "welcome", component: WelcomeComponent},
+  {path: "login", component: LoginComponent, outlet: "loginPage"},
   {
     path: "home",
     loadChildren: () => import('./hero/home/home.module').then(m => m.HomeModule),

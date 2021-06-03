@@ -4,12 +4,24 @@
 * {
   text-align: center;
 }
-
+#form-group{
+  display: block;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 40%;
+  z-index: 1000;
+  padding-top: 80px;
+  height: 100%;
+  width: fit-content;
+}
 form {
   background: rgba(255, 0, 0, 0.4);
   padding: 50px;
   margin-top: 100px;
   @include flex-container(center, column, center);
+  box-shadow: 10px 10px 5px 1000px rgba(0,0,0,0.75);
 }
 
 label {
@@ -20,10 +32,14 @@ label {
 }
 
 button {
-  display: block;
+  display: inline-block;
   width: 80px;
-  margin: 25px 0px;
+  margin: 25px 10px;
   @include button-styles();
+}
+
+button:hover {
+  background-color: $hover-color;
 }
 
 input {
