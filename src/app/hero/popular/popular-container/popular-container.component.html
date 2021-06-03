@@ -1,1 +1,42 @@
-<p>popular-container works!</p>
+<div class="popular-page-wrapper">
+  <mu-header></mu-header>
+  <main>
+    <mu-loader></mu-loader>
+    <table cellspacing="0" *ngIf="heroes" id="popular-table">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Modified</th>
+        <th>Description</th>
+        <th>Votes</th>
+        <th>
+          <button class="fav-button sort-button" (click)="sort(heroes)">
+            <mat-icon>unfold_more</mat-icon>
+          </button>
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let hero of heroes">
+        <td><a routerLink="/detail/{{hero?.id}}">{{hero?.id}}</a></td>
+        <td>{{hero?.name}}</td>
+        <td>{{hero?.modified | date}}</td>
+        <td>{{hero?.description || "No Description Found :("}}</td>
+        <td>{{hero?.votes}}</td>
+        <td id="up-down-button-container">
+          <button id="{{hero?.id}}-like" (click)="upVoteChecker(this.hero.id)"
+                  [style.color]="utilService.hasUpvoteId(hero.id) ? upVoteColor : defaultColor" class="fav-button">
+            <mat-icon>thumb_up_alt</mat-icon>
+          </button>
+          <button id="{{hero?.id}}-unlike" (click)="downVoteChecker(this.hero.id)"
+                  [style.color]="utilService.hasDownvoteId(hero.id) ? downVoteColor : defaultColor" class="fav-button">
+            <mat-icon>thumb_down_alt</mat-icon>
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </main>
+  <mu-footer></mu-footer>
+</div>

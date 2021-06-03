@@ -15,7 +15,7 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {path: "popular", component: PopularContainerComponent, canActivate: [AuthGuard]},
-  {path: "detail/:id", component: DetailContainerComponent, canActivate: [AuthGuard]},
+  {path: "detail/:id", component: DetailContainerComponent,canActivate: [AuthGuard]},
   {path: "", redirectTo: "welcome", pathMatch: "full"},
   {path: '**', component: PageNotFoundComponent}
 ];
