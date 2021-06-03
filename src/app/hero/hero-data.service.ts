@@ -44,14 +44,6 @@ export class HeroDataService {
       )
   }
 
-  getAllComics(): Observable<any> {
-    return this.http
-      .get<any>(environment.baseUrl + "comics?apikey=" + environment.apiKey).pipe(
-        map(
-          rawComicData => rawComicData.data.results
-        )
-      )
-  }
 
   sortByVote(heroes: any): any {
     if (this.sortFlag) {

@@ -1,0 +1,10 @@
+<article>
+  <section class="article-container" *ngIf="comicData">
+    <mu-loader></mu-loader>
+    <div class="content-wrapper">
+      <img class="article-profile-image" src="{{comicData?.imageUrl}}">
+      <div class="hero-desc">{{comicData?.description}}</div>
+      <div class="hero-desc">{{comicData?.modified}}</div>
+    </div>
+  </section>
+</article>

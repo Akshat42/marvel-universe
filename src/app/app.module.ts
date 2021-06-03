@@ -7,9 +7,9 @@ import {SharedModule} from "./shared/shared.module";
 import {UserModule} from "./user/user.module";
 import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
-import {DetailModule} from "./hero/detail/detail.module";
-import {PopularModule} from "./hero/popular/popular.module";
 import {HeroModule} from "./hero/hero.module";
+import {ComicModule} from "./comic/comic.module";
+import {PopularModule} from "./hero/popular/popular.module";
 
 @NgModule({
   declarations: [
@@ -22,7 +22,8 @@ import {HeroModule} from "./hero/hero.module";
     HttpClientModule,
     ReactiveFormsModule,
     UserModule,
-    HeroModule
+    HeroModule,
+    ComicModule
   ],
   providers: [],
   bootstrap: [AppComponent]
