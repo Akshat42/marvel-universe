@@ -1,5 +1,6 @@
 import {Component, Input, Output, EventEmitter, OnInit} from '@angular/core';
 import {Card} from "../../model/card";
+import {UtilService} from "../../service/util.service";
 
 @Component({
   selector: 'mu-card',

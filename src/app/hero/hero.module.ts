@@ -8,7 +8,9 @@ import {PopularModule} from "./popular/popular.module";
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+
+  ],
   imports: [
     CommonModule,
     SharedModule,

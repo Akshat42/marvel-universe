@@ -1,0 +1,11 @@
+<mu-header></mu-header>
+<div>
+  <button id = "add-comic">Add Comic</button>
+</div>
+<div class="card-container">
+  <mu-loader></mu-loader>
+  <div class="card" *ngFor="let comic of comics">
+    <a routerLink="/comic-detail/{{comic.id}}"><mu-card [card]="comic"></mu-card></a>
+  </div>
+</div>
+<mu-footer></mu-footer>

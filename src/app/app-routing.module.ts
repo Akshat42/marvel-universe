@@ -6,11 +6,12 @@ import {PageNotFoundComponent} from "./user/page-not-found/page-not-found.compon
 import {WelcomeComponent} from "./user/welcome/welcome.component";
 import {AuthGuard} from "./guard/auth.guard";
 import {DetailContainerComponent} from "./hero/detail/detail-container/detail-container.component";
+import {ComicListContainerComponent} from "./comic/comic-list-container/comic-list-container.component";
+import {ComicDetailContainerComponent} from "./comic/comic-detail-container/comic-detail-container.component";
 import {LoginComponent} from "./user/login/login.component";
 
 const routes: Routes = [
   {path: "welcome", component: WelcomeComponent},
-  {path: "login", component: LoginComponent, outlet: "popup"},
   {
     path: "home",
     loadChildren: () => import('./hero/home/home.module').then(m => m.HomeModule),
@@ -18,7 +19,10 @@ const routes: Routes = [
   },
   {path: "popular", component: PopularContainerComponent, canActivate: [AuthGuard]},
   {path: "detail/:id", component: DetailContainerComponent,canActivate: [AuthGuard]},
+  {path: "comics", component: ComicListContainerComponent,canActivate: [AuthGuard]},
+  {path: "comic-detail/:id", component: ComicDetailContainerComponent,canActivate: [AuthGuard]},
   {path: "", redirectTo: "welcome", pathMatch: "full"},
+  {path: "login", component: LoginComponent, outlet: "popup"},
   {path: '**', component: PageNotFoundComponent}
 ];
 

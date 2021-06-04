@@ -24,7 +24,7 @@ export class HeroDataService {
   }
 
   getAllHeroes(): Observable<any> {
-    return this.http.get<any>(environment.baseUrl + 'comics/1158/characters?' +'apikey=' + environment.apiKey).pipe(map((data: any) => data.data.results));
+    return this.http.get<any>(environment.baseUrl + 'comics/1158/characters?' + 'apikey=' + environment.apiKey).pipe(map((data: any) => data.data.results));
   }
 
   getFilteredHeroes(filterString: string): Observable<any> {
@@ -43,6 +43,7 @@ export class HeroDataService {
         )
       )
   }
+
 
   sortByVote(heroes: any): any {
     if (this.sortFlag) {

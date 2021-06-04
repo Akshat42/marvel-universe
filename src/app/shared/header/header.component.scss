@@ -11,7 +11,7 @@ $mu-header-hover-color: #2e2c2c;
 
 .header-container {
   overflow: hidden;
-  position: fixed;
+  position: sticky;
   width: 100%;
   margin-bottom: -50px;
 }
