@@ -1,6 +1,6 @@
 <header class="header-container">
   <div class="header-flex-wrapper">
-    <a routerLink="/home"><img src="./assets/images/icons/marvel.svg" alt="marvel_logo"></a>
+    <a [routerLink]="['/home']"><img src="./assets/images/icons/marvel.svg" alt="marvel_logo"></a>
     <nav class="header-flex-nav">
       <div class="flex-nav-item"><span *ngIf="userName">Welcome, {{userName}}</span></div>
       <div class="flex-nav-item nav-hover"><a routerLink='/popular'>Popular</a></div>
