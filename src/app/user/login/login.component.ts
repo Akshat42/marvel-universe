@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit {
       if (this._authService.redirectUrl) {
         this._router.navigateByUrl(this._authService.redirectUrl);
       } else {
-        this._router.navigate(['/home'])
+        this._router.navigate([{outlets: {popup: null, primary: ['home']}}]);
       }
       this.loginStatusMessage = this._authService.message;
     }
@@ -69,5 +69,9 @@ export class LoginComponent implements OnInit {
     if ((control.touched || control.dirty) && control.errors) {
       this.displayPasswordMessage = Object.keys(control.errors).map(key => (<any>this.validationMessages.password)[key]).join(' ');
     }
+  }
+
+  closeModal(){
+    this._router.navigate([{outlets: {popup: null, primary: ['welcome']}}]);
   }
 }

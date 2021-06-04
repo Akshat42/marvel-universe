@@ -2,6 +2,8 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {SharedModule} from "../shared/shared.module";
 import {DetailModule} from "./detail/detail.module";
+import {HomeModule} from "./home/home.module";
+import {PopularModule} from "./popular/popular.module";
 
 
 
@@ -12,7 +14,9 @@ import {DetailModule} from "./detail/detail.module";
   imports: [
     CommonModule,
     SharedModule,
-    DetailModule
+    DetailModule,
+    HomeModule,
+    PopularModule
   ]
 })
 export class HeroModule {

@@ -4,6 +4,8 @@ import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import {RouterModule} from "@angular/router";
+import {AppRoutingModule} from "../app-routing.module";
 
 
 
@@ -11,11 +13,13 @@ import {ReactiveFormsModule} from "@angular/forms";
   declarations: [
     LoginComponent,
     PageNotFoundComponent,
-    WelcomeComponent
+    WelcomeComponent,
   ],
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule,
+    AppRoutingModule
   ]
 })
 export class UserModule { }

@@ -29,7 +29,6 @@ import { LoaderComponent } from './loader/loader.component';
     FooterComponent,
     DetailDataComponent,
     LoaderComponent,
-    DetailDataComponent,
     CardComponent
   ],
 })

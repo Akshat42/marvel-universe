@@ -1,6 +1,11 @@
 @import "./src/assets/styles/mixins";
 @import "./src/assets/styles/variables";
 
+.bg{
+  position: fixed;
+  left: 35%;
+}
+
 .container {
   @include flex-container(flex-start, column, center);
   height: 97vh;
@@ -9,4 +14,13 @@ h1{
   align-self: center;
   background: $primary-color;
   margin-top: 50px;
+}
+
+button{
+  @include button-styles();
+  width: 80px;
+}
+
+button:hover {
+  background-color: $hover-color;
 }

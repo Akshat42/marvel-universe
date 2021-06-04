@@ -1,5 +1,6 @@
-<div class="form-group">
+<div id="form-group">
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <h2>Please Login</h2>
     <div
       [ngClass]="{'is-invalid': displayEmailMessage}">
       <label for="email">Email</label>
@@ -24,7 +25,8 @@
       </span>
     </div>
     <div>
-      <button type="submit">Login</button>
+      <button type="submit">Submit</button>
+      <button type="button" (click)="closeModal()">Cancel</button>
     </div>
     <div class="loginStatusMessage">
       {{ loginStatusMessage }}
