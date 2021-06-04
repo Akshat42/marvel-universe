@@ -8,6 +8,7 @@ import {AuthGuard} from "./guard/auth.guard";
 import {DetailContainerComponent} from "./hero/detail/detail-container/detail-container.component";
 import {ComicListContainerComponent} from "./comic/comic-list-container/comic-list-container.component";
 import {ComicDetailContainerComponent} from "./comic/comic-detail-container/comic-detail-container.component";
+import {LoginComponent} from "./user/login/login.component";
 
 const routes: Routes = [
   {path: "welcome", component: WelcomeComponent},
@@ -21,6 +22,7 @@ const routes: Routes = [
   {path: "comics", component: ComicListContainerComponent,canActivate: [AuthGuard]},
   {path: "comic-detail/:id", component: ComicDetailContainerComponent,canActivate: [AuthGuard]},
   {path: "", redirectTo: "welcome", pathMatch: "full"},
+  {path: "login", component: LoginComponent, outlet: "popup"},
   {path: '**', component: PageNotFoundComponent}
 ];
 
