@@ -8,9 +8,36 @@
     <div class="sort-button" (click)="sortHeroes()">
       <button type="button">SORT</button>
     </div>
+    <a><mat-icon class="icon-color">add_circle</mat-icon></a>
   </div>
-  <mu-loader></mu-loader>
+  <div class="form-container">
+    <form>
+      <!--  <form [formGroup]="heroForm" (ngSubmit)="onSubmit()">-->
+      <div>
+        <label for="heroId">Hero Id</label>
+        <input type="number" id="heroId">
+      </div>
+      <div>
+        <label for="heroName">Hero Name</label>
+        <input type="text" id="heroName">
+      </div>
+      <div>
+        <label for="heroDescription">Description</label>
+        <textarea id="heroDescription"></textarea>
+      </div>
+      <div>
+        <label for="heroImage">Hero Image</label>
+        <input type="file" id="heroImage">
+      </div>
+      <div class="action-buttons">
+        <button type="submit">Submit</button>
+        <button type="clear">Clear</button>
+        <button type="cancel">Cancel</button>
+      </div>
+    </form>
+  </div>
   <div class="card-container">
+    <mu-loader></mu-loader>
     <div class="card" *ngFor="let hero of allHeroes">
       <mu-card [card]="hero" (cardClickEmitter)="getHeroDetail($event)" ></mu-card>
     </div>

@@ -37,6 +37,43 @@ button {
 button:hover {
   background: $hover-color;
 }
+.form-container{
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 40%;
+  z-index: 1000;
+  padding-top: 80px;
+  height: 100%;
+  width: fit-content;
+}
+form {
+  background: rgba(255, 0, 0, 0.4);
+  padding: 50px;
+  margin-top: 100px;
+  @include flex-container(center, column, center);
+  box-shadow: 10px 10px 5px 1000px rgba(0,0,0,0.75);
+}
+
+label {
+  display: block;
+  margin: 10px 0;
+  cursor: pointer;
+  font-weight: bolder;
+}
+
+.action-buttons {
+  display: inline-block;
+  width: 80px;
+  margin: 25px 10px;
+  @include button-styles();
+}
+
+input {
+  border-radius: 25px;
+}
+
 
 .card-container {
   padding: 0px 30px 30px 30px;
@@ -53,4 +90,8 @@ button:hover {
   @include for-phone-only() {
     width: 100%;
   }
+}
+
+.icon-color {
+  color: red;
 }
