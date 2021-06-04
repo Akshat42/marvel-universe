@@ -20,8 +20,8 @@ export class ComicDataService {
       )
   }
 
-  getComic(heroId:number): Observable<any> {
-    return this.http.get<any>(environment.baseUrl+`comics/${heroId}?apikey=`+environment.apiKey).pipe(
+  getComic(comicId:number): Observable<any> {
+    return this.http.get<any>(environment.baseUrl+`comics/${comicId}?apikey=`+environment.apiKey).pipe(
       map(
         comicData => comicData.data.results[0]
       )
