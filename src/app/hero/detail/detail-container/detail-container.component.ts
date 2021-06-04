@@ -34,8 +34,11 @@ export class DetailContainerComponent implements OnInit {
       data => {
         this.currentHeroData = data;
       },
-      error => console.log(error)
-    )
+      error => this.hasError()
+    );
+  }
+  hasError(){
+    let errorMsg = 'No data found in with this id';
   }
 
 }

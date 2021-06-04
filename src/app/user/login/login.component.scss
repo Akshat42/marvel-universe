@@ -10,11 +10,11 @@
   top: 0;
   right: 0;
   bottom: 0;
-  left: 40%;
+  left: 32%;
   z-index: 1000;
   padding-top: 80px;
   height: 100%;
-  width: fit-content;
+  width: 500px;
 }
 form {
   background: rgba(255, 0, 0, 0.4);
@@ -44,6 +44,7 @@ button:hover {
 
 input {
   border-radius: 25px;
+  width: 250px;
 }
 
 .invalid-feedback {

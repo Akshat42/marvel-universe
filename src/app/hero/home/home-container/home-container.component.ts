@@ -3,6 +3,7 @@ import {HeroDataService} from "../../hero-data.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {UtilService} from "../../../service/util.service";
 import {Card} from "../../../model/card"
+import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'mu-home-container',
@@ -13,8 +14,54 @@ export class HomeContainerComponent implements OnInit {
 
   searchedString: string = '';
   inputValue!: string;
+  addIconClicked: boolean = false;
+  heroForm!: FormGroup;
+  errorMessages = {
+    heroId: {
+      'required': 'Hero ID is required',
+    },
+    heroName: {
+      'required': 'Hero Name is required',
+    },
+    heroDescription: {
+      'required': 'Hero Description is required'
+    }
+  };
+  displayHeroIdErrorMessage: string = '';
+  displayHeroNameErrorMessage: string = '';
 
-  constructor(private _heroDataService: HeroDataService, private _utilService: UtilService, private _router: Router, private _route: ActivatedRoute) {
+  constructor(private _heroDataService: HeroDataService, private _utilService: UtilService, private _router: Router, private _route: ActivatedRoute, private _formBuilder: FormBuilder) {
+  }
+
+  allHeroes!: Card[];
+
+  ngOnInit(): void {
+    this.getCharacters();
+
+    this._route.queryParams.subscribe((params) => {
+      this.inputValue = params.search;
+      this._heroDataService.getFilteredHeroes(this.inputValue).subscribe(heroes => {
+          this.getHeroDetails(heroes);
+        },
+        error => console.log(error)
+      );
+    });
+
+
+    this.heroForm = this._formBuilder.group({
+      heroId: [0, [Validators.required]],
+      heroName: ['', [Validators.required]],
+      heroDescription: ['', [Validators.required]]
+    });
+
+    const heroIdControl = this.heroForm.get('heroId');
+    heroIdControl?.valueChanges.subscribe(
+      value => this.setHeroIdMessage(heroIdControl)
+    );
+    const heroNameControl = this.heroForm.get('heroName');
+    heroNameControl?.valueChanges.subscribe(
+      value => this.setHeroNameMessage(heroNameControl)
+    );
   }
 
   changeUrl(searchString: string) {
@@ -27,22 +74,7 @@ export class HomeContainerComponent implements OnInit {
     });
   }
 
-  allHeroes!: Card[];
-
-  ngOnInit(): void {
-    this.getCharacters();
-    this._route.queryParams.subscribe((params) => {
-        if (this.inputValue === '') {
-          this.getCharacters();
-        } else {
-          this.inputValue = params.search;
-          this.searchHeroes(this.inputValue);
-        }
-      }
-    )
-  }
-
-  getHeroDetail(heroId: number){
+  getHeroDetail(heroId: number) {
     this._router.navigate([`./detail/${heroId}`])
   }
 
@@ -71,7 +103,7 @@ export class HomeContainerComponent implements OnInit {
     this._heroDataService.getHeroesSortedByName().subscribe(heroes => {
         this.getHeroDetails(heroes);
       },
-      error =>  console.log(error)
+      error => console.log(error)
     );
   }
 
@@ -86,6 +118,41 @@ export class HomeContainerComponent implements OnInit {
         error => console.log(error)
       );
       this.changeUrl(searchedValue);
+    }
+  }
+
+  buttonClicked(): boolean {
+    this.addIconClicked = true;
+    return this.addIconClicked;
+  }
+
+  onSubmit() {
+    if (!this.heroForm.get('heroId')?.errors && !this.heroForm.get('heroName')?.errors && !this.heroForm.get('heroDescription')?.errors) {
+      let heroDetails: Card = {
+        id: this.heroForm.get('heroId')?.value,
+        cardName: this.heroForm.get('heroName')?.value,
+        imageUrl: '../../../../assets/images/heroImage.jpg'
+      }
+      this.allHeroes.unshift(heroDetails);
+      this.removeForm();
+    }
+  }
+
+  removeForm() {
+    this.addIconClicked = false;
+  }
+
+  setHeroIdMessage(control: AbstractControl) {
+    this.displayHeroIdErrorMessage = '';
+    if ((control.touched || control.dirty) && control.errors) {
+      this.displayHeroIdErrorMessage = Object.keys(control.errors).map(key => (<any>this.errorMessages.heroId)[key]).join(' ');
+    }
+  }
+
+  setHeroNameMessage(control: AbstractControl) {
+    this.displayHeroNameErrorMessage = '';
+    if ((control.touched || control.dirty) && control.errors) {
+      this.displayHeroNameErrorMessage = Object.keys(control.errors).map(key => (<any>this.errorMessages.heroName)[key]).join(' ');
     }
   }
 }

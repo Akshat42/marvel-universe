@@ -23,12 +23,12 @@
   outline: 0;
 }
 
-.search-bar button {
+.search-bar > button {
   margin-left: 20px;
   width: 80px;
 }
 
-button {
+.header-button {
   width: 150px;
   height: 30px;
   @include button-styles();
@@ -37,33 +37,39 @@ button {
 button:hover {
   background: $hover-color;
 }
-.form-container{
+
+#form-container {
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
-  left: 40%;
+  left: 32%;
   z-index: 1000;
   padding-top: 80px;
   height: 100%;
-  width: fit-content;
+  width: 500px;
 }
+
 form {
-  background: rgba(255, 0, 0, 0.4);
+  background: #323232;
   padding: 50px;
   margin-top: 100px;
   @include flex-container(center, column, center);
-  box-shadow: 10px 10px 5px 1000px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 5px 1000px rgba(0, 0, 0, 0.75);
 }
 
 label {
-  display: block;
-  margin: 10px 0;
+  margin: 10px 10px;
   cursor: pointer;
   font-weight: bolder;
+  color: white;
 }
 
-.action-buttons {
+.form-field {
+  padding: 20px;
+}
+
+.form-button {
   display: inline-block;
   width: 80px;
   margin: 25px 10px;
@@ -72,6 +78,7 @@ label {
 
 input {
   border-radius: 25px;
+  width: 250px;
 }
 
 
@@ -92,6 +99,24 @@ input {
   }
 }
 
+.has-errors label{
+  color: $primary-color;
+}
+
+.has-errors input {
+  border-color: $primary-color;
+}
+
+.error-feedback {
+  color: $primary-color;
+  display: block;
+  margin: 5px 0 0 90px;
+}
+
 .icon-color {
-  color: red;
+  color: $primary-color;
+}
+
+.addIcon {
+  cursor: pointer;
 }
