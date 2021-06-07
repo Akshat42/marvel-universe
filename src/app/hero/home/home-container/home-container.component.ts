@@ -17,9 +17,6 @@ export class HomeContainerComponent implements OnInit {
   addIconClicked: boolean = false;
   heroForm!: FormGroup;
   errorMessages = {
-    heroId: {
-      'required': 'Hero ID is required',
-    },
     heroName: {
       'required': 'Hero Name is required',
     },
@@ -27,7 +24,7 @@ export class HomeContainerComponent implements OnInit {
       'required': 'Hero Description is required'
     }
   };
-  displayHeroIdErrorMessage: string = '';
+  displayHeroDescErrorMessage: string = '';
   displayHeroNameErrorMessage: string = '';
 
   constructor(private _heroDataService: HeroDataService, private _utilService: UtilService, private _router: Router, private _route: ActivatedRoute, private _formBuilder: FormBuilder) {
@@ -40,26 +37,25 @@ export class HomeContainerComponent implements OnInit {
 
     this._route.queryParams.subscribe((params) => {
       this.inputValue = params.search;
-      if(this.inputValue!=='') {
+      if (this.inputValue !== '') {
         this._heroDataService.getFilteredHeroes(this.inputValue).subscribe(heroes => {
             this.getHeroDetails(heroes);
           },
           error => console.log(error)
         );
-      }
-      else{
+      } else {
         this.getCharacters();
       }
     });
 
     this.heroForm = this._formBuilder.group({
-      heroId: [0, [Validators.required]],
-      heroName: ['', [Validators.required]]
+      heroName: ['', [Validators.required]],
+      heroDescription: [0, [Validators.required]]
     });
 
-    const heroIdControl = this.heroForm.get('heroId');
-    heroIdControl?.valueChanges.subscribe(
-      value => this.setHeroIdMessage(heroIdControl)
+    const heroDescControl = this.heroForm.get('heroDescription');
+    heroDescControl?.valueChanges.subscribe(
+      value => this.setHeroIdMessage(heroDescControl)
     );
     const heroNameControl = this.heroForm.get('heroName');
     heroNameControl?.valueChanges.subscribe(
@@ -87,7 +83,8 @@ export class HomeContainerComponent implements OnInit {
       this.allHeroes.push({
         imageUrl: hero.thumbnail.path + "." + hero.thumbnail.extension,
         cardName: hero.name,
-        id: hero.id
+        id: hero.id,
+        description: ''
       });
     });
     this._utilService.hideLoader();
@@ -132,8 +129,9 @@ export class HomeContainerComponent implements OnInit {
   onSubmit() {
     if (!this.heroForm.get('heroId')?.errors && !this.heroForm.get('heroName')?.errors) {
       let heroDetails: Card = {
-        id: this.heroForm.get('heroId')?.value,
+        id: Math.floor((Math.random() * 100) + 1),
         cardName: this.heroForm.get('heroName')?.value,
+        description: this.heroForm.get('heroDescription')?.value,
         imageUrl: '../../../../assets/images/heroImage.jpg'
       }
       this.allHeroes.unshift(heroDetails);
@@ -146,9 +144,9 @@ export class HomeContainerComponent implements OnInit {
   }
 
   setHeroIdMessage(control: AbstractControl) {
-    this.displayHeroIdErrorMessage = '';
+    this.displayHeroDescErrorMessage = '';
     if ((control.touched || control.dirty) && control.errors) {
-      this.displayHeroIdErrorMessage = Object.keys(control.errors).map(key => (<any>this.errorMessages.heroId)[key]).join(' ');
+      this.displayHeroDescErrorMessage = Object.keys(control.errors).map(key => (<any>this.errorMessages.heroDescription)[key]).join(' ');
     }
   }
 

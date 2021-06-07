@@ -11,7 +11,7 @@ export class CardComponent implements OnInit {
   constructor() {
   }
 
-  @Input() card: Card = {imageUrl: '', cardName: '', id: 0};
+  @Input() card: Card = {imageUrl: '', cardName: '', id: 0, description: ''};
   @Output() cardClickEmitter = new EventEmitter<number>();
 
   ngOnInit(): void {

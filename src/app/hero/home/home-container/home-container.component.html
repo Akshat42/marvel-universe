@@ -14,18 +14,18 @@
   </div>
   <div id="form-container" *ngIf="addIconClicked">
     <form [formGroup]="heroForm" (ngSubmit)="onSubmit()">
-      <div class="form-field" [ngClass]="{'has-errors': displayHeroIdErrorMessage}">
-        <label for="heroId">Hero Id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-        <input type="number" id="heroId" formControlName="heroId">
-        <span class="error-feedback">
-        {{ displayHeroIdErrorMessage }}
-      </span>
-      </div>
       <div class="form-field" [ngClass]="{'has-errors': displayHeroNameErrorMessage}">
         <label for="heroName">Hero Name</label>
         <input type="text" id="heroName" formControlName="heroName">
         <span class="error-feedback">
         {{ displayHeroNameErrorMessage }}
+      </span>
+      </div>
+      <div class="form-field" [ngClass]="{'has-errors': displayHeroDescErrorMessage}">
+        <label for="heroDesc">Hero Description</label>
+        <textarea type="number" id="heroDesc" formControlName="heroDescription" row="5" cols="42"></textarea>
+        <span class="error-feedback">
+        {{ displayHeroDescErrorMessage }}
       </span>
       </div>
       <div>
