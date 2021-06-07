@@ -12,7 +12,7 @@ export class ComicDataComponent implements OnInit {
   }
 
   @Input() comicData: Comic = {description: "", id: 0, imageUrl: "", modified: "", name: ""};
-
+  @Input() error = '';
   ngOnInit(): void {
   }
 

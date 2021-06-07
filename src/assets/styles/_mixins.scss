@@ -30,5 +30,12 @@
   @media screen and (max-width: 767px) {
     @content
   }
+}
 
+@mixin red-button() {
+  border:0;
+  padding: 10px;
+  background-color: $primary-color;
+  color: $background-color;
+  cursor: pointer;
 }

@@ -5,6 +5,7 @@ import {SharedModule} from "../shared/shared.module";
 import {AppRoutingModule} from "../app-routing.module";
 import { ComicDetailContainerComponent } from './comic-detail-container/comic-detail-container.component';
 import { ComicDataComponent } from './comic-data/comic-data.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 
@@ -17,6 +18,7 @@ import { ComicDataComponent } from './comic-data/comic-data.component';
   imports: [
     CommonModule,
     SharedModule,
+    ReactiveFormsModule,
     AppRoutingModule
   ]
 })

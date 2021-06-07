@@ -1,11 +1,49 @@
 <mu-header></mu-header>
-<div>
-  <button id = "add-comic">Add Comic</button>
+<div class="button-wrapper">
+  <button id="add-comic" (click)="onComicModalClick()">Add Comic</button>
 </div>
+<section class="modal-container" *ngIf="showComicModal">
+  <form (ngSubmit)="addComicDetail()" [formGroup]="modalComicFormGroup">
+    <div class="input-wrapper">
+      <input class="modal-input-field"
+             type="number"
+             placeholder="Enter ComicID"
+             formControlName="comicId"
+      >
+      <div [ngClass]="{'is-invalid': displayComicNameMessage}">
+        <input class="modal-input-field"
+               type="text"
+               placeholder="Enter Comic Name"
+               formControlName="comicName">
+        <span>
+        {{displayComicNameMessage}}
+      </span>
+      </div>
+
+      <div [ngClass]="{'is-invalid': displayComicDescMessage}">
+        <input class="modal-input-field"
+               type="text"
+               id="comicDescription"
+               placeholder="Enter Comic Description"
+               formControlName="comicDesc"
+        >
+        <span>
+        {{displayComicDescMessage}}
+      </span>
+      </div>
+    </div>
+    <div class="modal-button-wrapper">
+      <button class="modal-button">Submit</button>
+      <button (click)="hideModal()" class="modal-button">Cancel</button>
+    </div>
+  </form>
+</section>
 <div class="card-container">
   <mu-loader></mu-loader>
   <div class="card" *ngFor="let comic of comics">
-    <a routerLink="/comic-detail/{{comic.id}}"><mu-card [card]="comic"></mu-card></a>
+    <a routerLink="/comic-detail/{{comic.id}}">
+      <mu-card [card]="comic"></mu-card>
+    </a>
   </div>
 </div>
 <mu-footer></mu-footer>
