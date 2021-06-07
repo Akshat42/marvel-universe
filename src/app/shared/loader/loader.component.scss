@@ -1,0 +1,10 @@
+@import "src/assets/styles/variables";
+@import "src/assets/styles/mixins";
+img {
+  width: 100px;
+  background-color: inherit;
+}
+
+div {
+  @include flex-container(center,normal,center);
+}

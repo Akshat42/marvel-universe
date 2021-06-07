@@ -1,0 +1,10 @@
+<article>
+  <section  class="article-container" *ngIf="detailData">
+    <mu-loader></mu-loader>
+    <div class="content-wrapper">
+      {{errorMsg}}
+      <img class="article-profile-image" src="{{detailData?.imageUrl}}" (load)="utilService.hideLoader()">
+      <div  class = "hero-desc">{{detailData?.description}}</div>
+    </div>
+  </section>
+</article>

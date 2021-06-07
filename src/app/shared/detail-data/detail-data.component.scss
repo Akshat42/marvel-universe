@@ -1,0 +1,44 @@
+@import "./src/assets/styles/mixins";
+@import "./src/assets/styles/variables";
+
+article {
+  height: 97vh;
+  background: linear-gradient(45deg, black, transparent);
+  @include flex-container(normal, row, normal);
+}
+
+.header-wrapper {
+  position: absolute;
+  top: 0px;
+  height: 200px;
+  overflow: hidden;
+}
+
+.content-wrapper {
+  @include flex-container(normal,column,center);
+}
+
+
+.article-profile-image {
+  min-width: 200px;
+  margin: 10px;
+  width: 200px;
+  box-sizing: border-box;
+  object-fit: cover;
+}
+
+.hero-desc {
+  padding: 20px;
+}
+
+.article-container {
+  @include flex-container(normal, column, center);
+  min-height: 400px;
+  width: 60%;
+  background-color: $article-container-color;
+  margin: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 10px;
+}
+
+

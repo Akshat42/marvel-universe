@@ -1,0 +1,74 @@
+@import "./src/assets/styles/mixins";
+@import "./src/assets/styles/variables";
+
+.card-container {
+  background-image: linear-gradient(45deg, rgb(0, 0, 0), rgba(0, 0, 0, 0));
+  @include flex-container(space-evenly, row, center);
+  flex-wrap: wrap;
+  overflow: scroll;
+  height: 100vh;
+  border-collapse: collapse;
+}
+
+#add-comic {
+  @include red-button;
+  margin-top: 58px;
+  margin-bottom: 12px;
+  margin-left: 25px;
+  transition: 0.5s;
+}
+
+.button-wrapper {
+  box-shadow: 0 0 5px 2px;
+  background-color: #202020;
+}
+
+#add-comic:hover {
+  filter: invert(1);
+}
+
+.card {
+  padding: 100px;
+  width: 250px;
+  margin: -50px 0px;
+  @include flex-container(center, column, center);
+  @include for-phone-only() {
+    width: 100%;
+  }
+}
+.modal-container {
+  position: fixed;
+  height: 500px;
+  top: 20%;
+  left: 25%;
+  width: 50%;
+  background-color: $background-color-rgba;
+  z-index: 1;
+  border-radius: 3px;
+}
+
+.modal-input-field {
+  display: block;
+  padding: 10px;
+  width: auto;
+  border: 1px solid red;
+  margin-bottom: 50px;
+}
+
+.input-wrapper {
+  margin-top: 15%;
+  margin-left: 34%;
+}
+
+.modal-button-wrapper {
+  margin-left: 37%;
+}
+
+.modal-button {
+  @include red-button;
+  margin: 14px;
+}
+
+.is-invalid {
+  color: $primary-color
+}

@@ -1,0 +1,45 @@
+<mu-header></mu-header>
+<div class="content">
+  <div class="funtionalities">
+    <div class="search-bar">
+      <input type="text" placeholder="  Search... " #searchedString [(ngModel)]="inputValue">
+      <button type="button" class="header-button" (click)="searchHeroes(searchedString.value)">GO</button>
+    </div>
+    <div class="sort-button" (click)="sortHeroes()">
+      <button type="button" class="header-button">SORT</button>
+    </div>
+    <a (click)="buttonClicked()" class="addIcon">
+      <mat-icon class="icon-color">add_circle</mat-icon>
+    </a>
+  </div>
+  <div id="form-container" *ngIf="addIconClicked">
+    <form [formGroup]="heroForm" (ngSubmit)="onSubmit()">
+      <div class="form-field" [ngClass]="{'has-errors': displayHeroNameErrorMessage}">
+        <label for="heroName">Hero Name</label>
+        <input type="text" id="heroName" formControlName="heroName">
+        <span class="error-feedback">
+        {{ displayHeroNameErrorMessage }}
+      </span>
+      </div>
+      <div class="form-field" [ngClass]="{'has-errors': displayHeroDescErrorMessage}">
+        <label for="heroDesc">Hero Description</label>
+        <textarea type="number" id="heroDesc" formControlName="heroDescription" rows="5" cols="42"></textarea>
+        <span class="error-feedback">
+        {{ displayHeroDescErrorMessage }}
+      </span>
+      </div>
+      <div>
+        <button type="submit" class="form-button">Submit</button>
+        <button type="reset" class="form-button">Clear</button>
+        <button type="cancel" class="form-button" (click)="removeForm()">Cancel</button>
+      </div>
+    </form>
+  </div>
+  <div class="card-container">
+    <mu-loader></mu-loader>
+    <div class="card" *ngFor="let hero of allHeroes">
+      <mu-card [card]="hero" (cardClickEmitter)="getHeroDetail($event)"></mu-card>
+    </div>
+  </div>
+</div>
+<mu-footer></mu-footer>
