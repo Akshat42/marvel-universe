@@ -3,7 +3,6 @@ import {Card} from "../../model/card";
 import {ComicDataService} from "../comic-data.service";
 import {UtilService} from "../../service/util.service";
 import {AbstractControl, FormBuilder, Validators} from "@angular/forms";
-import {debounceTime} from "rxjs/operators";
 
 @Component({
   selector: 'mu-comic-list-container',
@@ -98,7 +97,8 @@ export class ComicListContainerComponent implements OnInit {
       let newComic: Card = {
         id: comicId,
         imageUrl: "http://i.annihil.us/u/prod/marvel/i/mg/f/c0/4bc66d78f1bee.jpg",
-        cardName: comicName
+        cardName: comicName,
+        description: ''
       }
       this.comics.unshift(newComic);
       this.hideModal();
