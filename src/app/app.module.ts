@@ -11,6 +11,7 @@ import {HeroModule} from "./hero/hero.module";
 import {ComicModule} from "./comic/comic.module";
 import {PopularModule} from "./hero/popular/popular.module";
 
+
 @NgModule({
   declarations: [
     AppComponent,

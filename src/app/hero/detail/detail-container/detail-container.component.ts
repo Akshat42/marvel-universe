@@ -35,7 +35,6 @@ export class DetailContainerComponent implements OnInit {
         this.currentHeroData = data;
       },
       error => console.log(error)
-    )
+    );
   }
-
 }

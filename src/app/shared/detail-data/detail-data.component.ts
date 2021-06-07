@@ -13,7 +13,7 @@ export class DetailDataComponent implements OnInit {
   }
   utilService = new UtilService();
   @Input() detailData: Hero ={description: "", id: 0, imageUrl: "", modified: "", name: "", votes: 0};
-
+  errorMsg = console.error();
   ngOnInit(): void {
 
   }

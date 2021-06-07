@@ -1,30 +1,17 @@
-.popular-page-wrapper {
-  height: 100vh;
-  background-color: #f7e4e5; }
+/* Error: Can't find stylesheet to import.
+ *   ,
+ * 1 | @import "src/assets/styles/variables";
+ *   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ *   '
+ *   popular-container.component.scss 1:9  root stylesheet */
 
-main {
-  width: 80%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 5%; }
-
-th, td {
-  border-bottom: 1px solid red;
-  border-collapse: collapse;
-  padding: 10px;
-  text-align: center; }
-
-th {
-  background-color: #e62429; }
-
-tr:nth-child(even) {
-  background-color: #f5bfc1; }
-
-.fav-button {
-  border: 0;
-  background-color: inherit; }
-
-#up-down-button-container {
-  width: 80px; }
-
-/*# sourceMappingURL=popular-container.component.css.map */
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Can't find stylesheet to import.\a   \2577 \a 1 \2502  @import \"src/assets/styles/variables\";\a   \2502          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\a   \2575 \a   popular-container.component.scss 1:9  root stylesheet";
+}
