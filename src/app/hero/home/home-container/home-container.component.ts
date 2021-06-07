@@ -50,7 +50,7 @@ export class HomeContainerComponent implements OnInit {
 
     this.heroForm = this._formBuilder.group({
       heroName: ['', [Validators.required]],
-      heroDescription: [0, [Validators.required]]
+      heroDescription: ['', [Validators.required]]
     });
 
     const heroDescControl = this.heroForm.get('heroDescription');
