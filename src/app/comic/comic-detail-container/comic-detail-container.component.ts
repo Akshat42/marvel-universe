@@ -23,6 +23,7 @@ export class ComicDetailContainerComponent implements OnInit {
   comicId: number = 0;
 
   currentComicData: Comic = {description: "", id: 0, imageUrl: "", modified: "", name: ""}
+  error: any = "";
 
   ngOnInit(): void {
     this.comicId = this.activatedRoute.snapshot.params['id'];
@@ -41,7 +42,10 @@ export class ComicDetailContainerComponent implements OnInit {
         this.currentComicData = currentComicData;
         this.utilService.hideLoader();
       },
-      error => console.log(error)
+      errorResponse => {
+        this.error = errorResponse.error.status;
+        this.utilService.hideLoader();
+      }
     )
   }
 
