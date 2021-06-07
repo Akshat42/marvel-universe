@@ -55,7 +55,7 @@ export class HomeContainerComponent implements OnInit {
 
     const heroDescControl = this.heroForm.get('heroDescription');
     heroDescControl?.valueChanges.subscribe(
-      value => this.setHeroIdMessage(heroDescControl)
+      value => this.setHeroDescMessage(heroDescControl)
     );
     const heroNameControl = this.heroForm.get('heroName');
     heroNameControl?.valueChanges.subscribe(
@@ -143,7 +143,7 @@ export class HomeContainerComponent implements OnInit {
     this.addIconClicked = false;
   }
 
-  setHeroIdMessage(control: AbstractControl) {
+  setHeroDescMessage(control: AbstractControl) {
     this.displayHeroDescErrorMessage = '';
     if ((control.touched || control.dirty) && control.errors) {
       this.displayHeroDescErrorMessage = Object.keys(control.errors).map(key => (<any>this.errorMessages.heroDescription)[key]).join(' ');
