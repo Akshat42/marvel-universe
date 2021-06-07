@@ -1,6 +1,6 @@
 .header-container {
   overflow: hidden;
-  position: fixed;
+  position: sticky;
   width: 100%;
   margin-bottom: -50px;
 }
