@@ -5,10 +5,32 @@
 <section class="modal-container" *ngIf="showComicModal">
   <form (ngSubmit)="addComicDetail()" [formGroup]="modalComicFormGroup">
     <div class="input-wrapper">
-      <input required class="modal-input-field" type="number" id="comicId" placeholder="Enter ComicID" formControlName="comicId">
+      <input class="modal-input-field"
+             type="number"
+             placeholder="Enter ComicID"
+             formControlName="comicId"
+      >
+      <div [ngClass]="{'is-invalid': displayComicNameMessage}">
+        <input class="modal-input-field"
+               type="text"
+               placeholder="Enter Comic Name"
+               formControlName="comicName">
+        <span>
+        {{displayComicNameMessage}}
+      </span>
+      </div>
 
-      <input required  class="modal-input-field" type="text" id="comicName" placeholder="Enter Comic Name"
-             formControlName="comicName">
+      <div [ngClass]="{'is-invalid': displayComicDescMessage}">
+        <input class="modal-input-field"
+               type="text"
+               id="comicDescription"
+               placeholder="Enter Comic Description"
+               formControlName="comicDesc"
+        >
+        <span>
+        {{displayComicDescMessage}}
+      </span>
+      </div>
     </div>
     <div class="modal-button-wrapper">
       <button class="modal-button">Submit</button>

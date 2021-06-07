@@ -68,3 +68,7 @@
   @include red-button;
   margin: 14px;
 }
+
+.is-invalid {
+  color: $primary-color
+}
