@@ -33,11 +33,9 @@ export class HomeContainerComponent implements OnInit {
   allHeroes!: Card[];
 
   ngOnInit(): void {
-    this.getCharacters();
-
     this._route.queryParams.subscribe((params) => {
       this.inputValue = params.search;
-      if (this.inputValue !== '') {
+      if (params.search !== undefined) {
         this._heroDataService.getFilteredHeroes(this.inputValue).subscribe(heroes => {
             this.getHeroDetails(heroes);
           },

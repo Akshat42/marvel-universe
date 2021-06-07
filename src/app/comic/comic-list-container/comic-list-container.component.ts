@@ -25,7 +25,8 @@ export class ComicListContainerComponent implements OnInit {
           this.comics.push({
             imageUrl: comic.thumbnail.path + "." + comic.thumbnail.extension,
             cardName: comic.title,
-            id: comic.id
+            id: comic.id,
+            description: ''
           })
         })
         this.utilService.hideLoader();
