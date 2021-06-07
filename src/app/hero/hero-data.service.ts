@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 import {environment} from "../../environments/environment";
-import {map} from "rxjs/operators";
-import {Observable} from "rxjs";
+import {map, catchError} from "rxjs/operators";
+import {Observable, throwError} from "rxjs";
 
 
 @Injectable({
@@ -17,14 +17,11 @@ export class HeroDataService {
 
   getPopularHeroes(): Observable<any> {
     return this.http.get<any>(environment.baseUrl + "comics/18483/characters?apikey=" + environment.apiKey).pipe(
-      map(
-        rawData => rawData.data.results
-      )
-    )
+      map(rawData => rawData.data.results))
   }
 
   getAllHeroes(): Observable<any> {
-    return this.http.get<any>(environment.baseUrl + 'comics/1158/characters?' +'apikey=' + environment.apiKey).pipe(map((data: any) => data.data.results));
+    return this.http.get<any>(environment.baseUrl + 'comics/1158/characters?' + 'apikey=' + environment.apiKey).pipe(map((data: any) => data.data.results));
   }
 
   getFilteredHeroes(filterString: string): Observable<any> {
@@ -40,7 +37,7 @@ export class HeroDataService {
       .get<any>(environment.baseUrl + "characters/" + heroId + "?apikey=" + environment.apiKey).pipe(
         map(
           rawData => rawData.data.results[0]
-        )
+        ), catchError(this.handleError)
       )
   }
 
@@ -59,5 +56,8 @@ export class HeroDataService {
     return heroes;
   }
 
-
+  handleError() {
+    alert('The Details of given Hero ID is not Found');
+    return "error";
+  }
 }

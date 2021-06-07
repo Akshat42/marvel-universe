@@ -12,8 +12,8 @@ import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/form
 })
 export class HomeContainerComponent implements OnInit {
 
-  searchedString: string = '';
   inputValue!: string;
+  searchedString: string = '';
   addIconClicked: boolean = false;
   heroForm!: FormGroup;
   errorMessages = {
@@ -40,18 +40,21 @@ export class HomeContainerComponent implements OnInit {
 
     this._route.queryParams.subscribe((params) => {
       this.inputValue = params.search;
-      this._heroDataService.getFilteredHeroes(this.inputValue).subscribe(heroes => {
-          this.getHeroDetails(heroes);
-        },
-        error => console.log(error)
-      );
+      if(this.inputValue!=='') {
+        this._heroDataService.getFilteredHeroes(this.inputValue).subscribe(heroes => {
+            this.getHeroDetails(heroes);
+          },
+          error => console.log(error)
+        );
+      }
+      else{
+        this.getCharacters();
+      }
     });
-
 
     this.heroForm = this._formBuilder.group({
       heroId: [0, [Validators.required]],
-      heroName: ['', [Validators.required]],
-      heroDescription: ['', [Validators.required]]
+      heroName: ['', [Validators.required]]
     });
 
     const heroIdControl = this.heroForm.get('heroId');
@@ -127,7 +130,7 @@ export class HomeContainerComponent implements OnInit {
   }
 
   onSubmit() {
-    if (!this.heroForm.get('heroId')?.errors && !this.heroForm.get('heroName')?.errors && !this.heroForm.get('heroDescription')?.errors) {
+    if (!this.heroForm.get('heroId')?.errors && !this.heroForm.get('heroName')?.errors) {
       let heroDetails: Card = {
         id: this.heroForm.get('heroId')?.value,
         cardName: this.heroForm.get('heroName')?.value,
